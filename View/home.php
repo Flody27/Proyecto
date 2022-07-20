@@ -1,5 +1,6 @@
 <h2>Responsive Table</h2>
 <div class="table-wrapper">
+<link href="../css/home.css" rel="stylesheet">
     <table class="fl-table">
         <thead>
         <tr>
