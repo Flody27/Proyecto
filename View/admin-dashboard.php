@@ -1,5 +1,6 @@
 <?php
 include "..\controller\admin_controller.php";
+include "Componentes.php";
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +60,7 @@ include "..\controller\admin_controller.php";
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="">
+                        <a href="adim-usuarios.php">
                             <i class='bx bxs-user-account icon'></i>
                             <span class="text nav-text">Admin. Usuarios</span>
                         </a>
@@ -70,11 +71,13 @@ include "..\controller\admin_controller.php";
 
 
             <div class="bottom-content">
-                <li class="">
-                    <a href="">
-                        <i class="bx bx-log-out icon"></i>
-                        <span class="text nav-text">Cerrar Sesión</span>
-                    </a>
+            <li class="">
+                    <form action="../Controller/Login-Controller.php" method="post">
+                        <button type="submit" name="logout-btn">
+                            <i class="bx bx-log-out icon"></i>
+                            <span class="text nav-text">Cerrar Sesión</span>
+                        </button>
+                    </form>
                 </li>
             </div>
         </div>
@@ -83,16 +86,7 @@ include "..\controller\admin_controller.php";
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <nav>
-            <div class="welcome">
-                <h1>Alberto Rodriguez</h1>
-                <h3>Rol: Administrador</h3>
-            </div>
-            <div class="profile-details">
-                <span class="admin_name">Ajustes</span>
-                <i class='bx bx-chevrons-down'></i>
-            </div>
-        </nav>
+        <?php navbar(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
         <!-------------------- INICIO RESUMEN -------------->
@@ -161,7 +155,7 @@ include "..\controller\admin_controller.php";
                             </tr>
                         </thead>
                         <tbody>
-                            <?php LlenadoTabla(); ?>
+                            <?php // LlenadoTabla();  ?>
                         </tbody>
                     </table>
                 </div>

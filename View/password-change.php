@@ -26,20 +26,18 @@
               <div class="mb-md-5 mt-md-4 pb-5">
                 
                 <form action="../Controller/Login-Controller.php" method="POST">
-                  <h2 class="fw-bold mb-2 text-uppercase">Inicio de Sesión</h2>
+                  <h2 class="fw-bold mb-2 text-uppercase">Cambio de contraseña</h2><br>
                   <div class="form-outline form-white mb-4">
                     <input type="text" id="username" name="username" class="form-control form-control-lg" />
-                    <label class="form-label" for="username">Nombre de Usuario</label>
+                    <label class="form-label" for="username">Ingrese su usuario</label>
                   </div>
 
                   <div class="form-outline form-white mb-4">
                     <input type="password" name="password" id="contrasena" class="form-control form-control-lg" />
-                    <label class="form-label" for="contrasena">Contraseña</label>
+                    <label class="form-label" for="contrasena">Ingrese su nueva contraseña</label>
                   </div>
 
-                  <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="password-change.php">Olvidé mi contraseña.</a></p>
-
-                  <button class="btn btn-outline-light btn-lg px-5" name="login-btn" type="submit">Ingresar</button>
+                  <button class="btn btn-outline-light btn-lg px-5" name="change" type="submit">Cambiar</button>
                 </form>
 
               </div>
