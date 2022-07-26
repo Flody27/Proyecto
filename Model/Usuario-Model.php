@@ -32,7 +32,7 @@ include_once 'conexionDB.php';
 
     function getUnidadesDB(){
         $db = conectarDB();
-        $unidades =  $db->query("SELECT * FROM UNIDAD");
+        $unidades =  $db->query("CALL `getUnidades`();");
         desconectarDB($db);
         return $unidades;
     }
