@@ -1,0 +1,411 @@
+/*FUENTE*/
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;400;500;700&display=swap');
+
+* {
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --body-color: #FFF;
+    --sidebar-color: #155db1;
+    --primary-color: #d4a413;
+    --primary-color-light: #f3c332;
+    --toggle-color: #2196f3;
+    --text-color: #FFF;
+
+    /*TRANSICIONES*/
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+body {
+    height: 100vh;
+    background: var(--body-color);
+}
+
+/*REUTILIZABLE*/
+.sidebar .text {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-04);
+    white-space: nowrap;
+}
+
+.sidebar.close .text {
+    /* opacity: 0; */
+    display: none;
+
+}
+
+.sidebar .image {
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar li {
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px;
+}
+
+.sidebar li .icon,
+.sidebar li .text {
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+/*SIDEBAR*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;
+}
+
+.sidebar.close {
+    width: 88px;
+}
+
+
+.sidebar header {
+    position: relative;
+}
+
+.sidebar .image-text img {
+    width: 40px;
+    border-radius: 6px;
+}
+
+.sidebar header .image-text {
+    display: flex;
+    align-items: center;
+}
+
+header .image-text .header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text .name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sidebar header .toggle {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-color);
+    font-size: 22px;
+    transition: var(--tran-03);
+}
+
+.sidebar.close header .toggle {
+    transform: translateY(-50%);
+}
+
+.sidebar .search-box {
+    background: var(--primary-color-light);
+    border-radius: 6px;
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+    border-radius: 6px;
+}
+
+.sidebar li a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+}
+
+.sidebar li a:hover {
+    background: var(--primary-color-light);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+    color: var(--sidebar-color);
+}
+
+.sidebar li button {
+    min-height: 50px;
+    width: 222px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    transition: var(--tran-04);
+}
+
+.sidebar.close li button{
+    width: 60px;
+} 
+
+.sidebar button:hover {
+    background: var(--primary-color-light);
+}
+
+.sidebar li button:hover .icon,
+.sidebar li button:hover .text {
+    color: var(--sidebar-color);
+}
+
+.sidebar .menu-bar {
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.home-section {
+    position: relative;
+    height: 100vh;
+    left: 250px;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.home .text {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 8px 40px;
+}
+
+.sidebar.close~.home-section {
+    left: 88px;
+    width: calc(100% - 88px);
+}
+
+/*-------- NAVBAR -------------------*/
+
+
+.home-section nav {
+    height: 80px;
+    background: var(--primary-color-light);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.welcome {
+    margin-left: 10px;
+}
+
+.welcome h1 {
+    font-size: 20px;
+    color: var(--sidebar-color);
+}
+
+.welcome h3 {
+    font-size: 15px;
+    color: var(--sidebar-color);
+}
+
+.home-section nav .profile-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 50px;
+    min-width: 150px;
+    background: var(--sidebar-color);
+    border: 2px solid var(--text-color);
+    border-radius: 6px;
+    padding: 0 15px 0 2px;
+}
+
+nav .profile-details img {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+nav .profile-details .admin_name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-left: 0 10px;
+    white-space: nowrap;
+}
+
+nav .profile-details i {
+    color: var(--primary-color-light);
+    font-size: 25px;
+
+}
+
+/*-----------------TABLA UNIDADES-----------------------*/
+
+#tabla_demo {
+    margin: 20px;
+
+}
+
+#tabla_demo .row .col-12 {
+    display: flex;
+    justify-content: center;
+}
+
+#tbl_Demo {
+    background-color: var(--body-color);
+    border-radius: 6px;
+    border-collapse: collapse;
+    min-width: 400;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#tbl_Demo thead tr {
+    background-color: var(--sidebar-color);
+    color: var(--body-color);
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+}
+
+#tbl_Demo th {
+    padding: 10px 10px;
+}
+
+#tbl_Demo td {
+    padding: 5px 10px;
+}
+
+#tbl_Demo tbody tr {
+    border-bottom: 1.5px solid var(--toggle-color);
+}
+
+#tbl_Demo tbody tr:nth-of-type(even) {
+    background-color: #e9e9e9;
+}
+
+#tbl_Demo tbody tr:last-of-type {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+#tbl_Demo th {
+    font-weight: 500;
+}
+
+#boton_prueba {
+    width: 75px;
+    height: 18px;
+    font-size: small;
+    color: var(--text-color);
+    background: var(--toggle-color);
+    border-radius: 6px;
+    border: 0mm;
+}
+
+/*-------------ESTILO TARJETAS------------*/
+
+.tarjetas {
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: space-around;
+    color: #155db1;
+}
+
+.tarjetas h1 {
+    font-size: 35px;
+}
+
+.dashboard-container {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+    grid-template-areas:
+        "tarjeta1 tarjeta2 tarjeta3"
+        "tarjeta4 tarjeta5 tarjeta6";
+}
+
+.card {
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--body-color);
+    color: #e9e9e9;
+}
+
+.tarjeta1 {
+    grid-area: tarjeta1;
+    background-color: #2196f3;
+}
+
+.tarjeta2 {
+    grid-area: tarjeta2;
+    background-color: var(--primary-color);
+}
+
+.tarjeta3 {
+    grid-area: tarjeta3;
+    background-color: #2196f3;
+}
+
+.tarjeta4 {
+    grid-area: tarjeta4;
+    background-color: var(--primary-color);
+}
+
+.tarjeta5 {
+    grid-area: tarjeta5;
+    background-color: #2196f3;
+}
+
+.tarjeta6 {
+    grid-area: tarjeta6;
+    background-color: var(--primary-color);
+}
