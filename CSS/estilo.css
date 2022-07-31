@@ -171,6 +171,17 @@ header .image-text .header-text {
 }
 
 .sidebar li button {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+    background-color: transparent;
+    border: none;
+}
+/*.sidebar li button {
     min-height: 50px;
     width: 222px;
     cursor: pointer;
@@ -180,15 +191,18 @@ header .image-text .header-text {
     display: flex;
     align-items: center;
     transition: var(--tran-04);
-}
+}*/
 
 .sidebar.close li button{
     width: 60px;
 } 
 
-.sidebar button:hover {
+.sidebar li button:hover{
     background: var(--primary-color-light);
 }
+/*.sidebar button:hover {
+    background: var(--primary-color-light);
+}*/
 
 .sidebar li button:hover .icon,
 .sidebar li button:hover .text {
@@ -284,65 +298,59 @@ nav .profile-details i {
 
 /*-----------------TABLA UNIDADES-----------------------*/
 
-#tabla_demo {
+.contenido{
     margin: 20px;
-
-}
-
-#tabla_demo .row .col-12 {
     display: flex;
     justify-content: center;
 }
 
-#tbl_Demo {
+.tabcontent{
+    display: none;
+    height: 450px;
+    overflow-y: scroll;
+}
+
+
+table{    
+    top: 0%;
+    width: 100%;
     background-color: var(--body-color);
     border-radius: 6px;
-    border-collapse: collapse;
-    min-width: 400;
-    overflow: hidden;
+    border-collapse: collapse; 
+    overflow: hidden;   
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-#tbl_Demo thead tr {
+table thead tr{
     background-color: var(--sidebar-color);
     color: var(--body-color);
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     font-size: large;
+    position: sticky;
+    top: 0;
 }
 
-#tbl_Demo th {
+table th{
     padding: 10px 10px;
-}
-
-#tbl_Demo td {
-    padding: 5px 10px;
-}
-
-#tbl_Demo tbody tr {
-    border-bottom: 1.5px solid var(--toggle-color);
-}
-
-#tbl_Demo tbody tr:nth-of-type(even) {
-    background-color: #e9e9e9;
-}
-
-#tbl_Demo tbody tr:last-of-type {
-    border-bottom: 2px solid var(--primary-color);
-}
-
-#tbl_Demo th {
     font-weight: 500;
 }
 
-#boton_prueba {
-    width: 75px;
-    height: 18px;
-    font-size: small;
-    color: var(--text-color);
-    background: var(--toggle-color);
-    border-radius: 6px;
-    border: 0mm;
+table td {
+    padding: 5px 10px; 
+    text-align: center;   
+}
+
+table tbody tr{
+    border-bottom: 1.5px solid var(--toggle-color);
+}
+
+table tbody tr:nth-of-type(even){
+    background-color: #e9e9e9;
+}
+
+table tbody tr:last-of-type{
+    border-bottom: 2px solid var(--primary-color);
 }
 
 /*-------------ESTILO TARJETAS------------*/
@@ -408,4 +416,96 @@ nav .profile-details i {
 .tarjeta6 {
     grid-area: tarjeta6;
     background-color: var(--primary-color);
+}
+
+/*-------------CONTENEDOR MODAL---------------*/
+.contenedor-modal{
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal{
+    width: 70%;
+    height: 80%;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    transition: var(--tran-02);
+    transform: translateY(0%);
+    border-radius: 6px;
+}
+
+.modal-close{
+    transform: translateY(-150%);
+}
+
+.cierre_modal{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.detalle-ticket{
+    margin-top: 35px;
+    padding: 0px 15px;
+}
+
+.header-ticket{    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 25px 0px;
+    align-content: space-between;
+    gap: 20px 20px;
+}
+
+.no_ticket, .solicitante{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fecha_apertura, .estado_ticket{
+    display: flex;
+    justify-content: flex-end;   
+}
+
+.header-ticket h1{
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.header-ticket h2{
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.tabla_productos h1,
+.tabla_anotaciones h1{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.detalle-ticket input{
+    background-color: #e9e9e9;
+    border-radius: 6px;
+    border: none;
+    margin-left: 10px;
 }
