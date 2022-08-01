@@ -1,30 +1,30 @@
 <?php
 
-    include "ConexionBD.php";
+include_once 'conexionDB.php';
 
     function ConsultarUnidades(){
-        $instancia = AbrirBD();
+        $instancia = conectarDB();
 
         $listaUnidades = $instancia -> query ("CALL ConsultarUnidades();");
 
-        CerrarBD($instancia);
+        desconectarDB($instancia);
 
         return $listaUnidades;
     }
     function ConsultarTickets(){
-        $instancia = AbrirBD();
+        $instancia = conectarDB();
         $listaTickets = $instancia -> query ("CALL ConsultarTickets();");
-        CerrarBD($instancia);
+        desconectarDB($instancia);
         return $listaTickets;
     }
 
 
     function ConsultarInventario(){
-        $instancia = AbrirBD();
+        $instancia = conectarDB();
 
         $listaInventario = $instancia -> query ("CALL ConsultarInventario();");
 
-        CerrarBD($instancia);
+        desconectarDB($instancia);
 
         return $listaInventario;
     }
@@ -32,61 +32,61 @@
 
 /** FUNCIONES PARA CONTEO DE RESUMEN INVENTARIO */
     function ConteoPortatilesDispo(){
-        $instancia = AbrirBD();
+        $instancia = conectarDB();
 
         $cantPortatilesDispo = $instancia -> query ("CALL conteo_portatiles();");
 
-        CerrarBD($instancia);
+        desconectarDB($instancia);
 
         return $cantPortatilesDispo;
     }
 
     function ConteoWorkstationDispo(){
-        $instancia = AbrirBD();
+        $instancia = conectarDB();
 
         $cantWorkstationDispo = $instancia -> query ("CALL conteo_workstation();");
 
-        CerrarBD($instancia);
+        desconectarDB($instancia);
 
         return $cantWorkstationDispo;
     }    
     
     function ConteoDesktopDispo(){
-        $instancia = AbrirBD();
+        $instancia = conectarDB();
 
         $cantDesktopDispo = $instancia -> query ("CALL conteo_desktop();");
 
-        CerrarBD($instancia);
+        desconectarDB($instancia);
 
         return $cantDesktopDispo;
     }    
 
     function ConteoScannerDispo(){
-        $instancia = AbrirBD();
+        $instancia = conectarDB();
 
         $cantScannerDispo = $instancia -> query ("CALL conteo_scanner();");
 
-        CerrarBD($instancia);
+        desconectarDB($instancia);
 
         return $cantScannerDispo;
     }    
 
     function ConteoImpresoraDispo(){
-        $instancia = AbrirBD();
+        $instancia = conectarDB();
 
         $cantImpresoraDispo = $instancia -> query ("CALL conteo_impresora();");
 
-        CerrarBD($instancia);
+        desconectarDB($instancia);
 
         return $cantImpresoraDispo;
     }    
 
     function ConteoServerDispo(){
-        $instancia = AbrirBD();
+        $instancia = conectarDB();
 
         $cantServerDispo = $instancia -> query ("CALL conteo_servidores();");
 
-        CerrarBD($instancia);
+        desconectarDB($instancia);
 
         return $cantServerDispo;
     }    

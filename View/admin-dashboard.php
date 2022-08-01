@@ -23,7 +23,7 @@ include "Componentes.php";
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="../logo.png" alt="logo"> <!-- INSERTAR URL DE LOGO -->
+                <a href="admin-dashboard.php"><img  src="../logo.png" alt="logo"></a>
                 </span>
 
                 <div class="text header-text">
@@ -60,7 +60,7 @@ include "Componentes.php";
                         </button>
                     </li>
                     <li class="nav-link">
-                        <a href="adim-usuarios.php">
+                        <a href="admin-usuarios.php">
                             <i class='bx bxs-user-account icon'></i>
                             <span class="text nav-text">Admin. Usuarios</span>
                         </a>
@@ -142,9 +142,7 @@ include "Componentes.php";
 
         <!-------------------- INICIO TABLA -------------->
         <div class="contenido">
-
             <div id="Tickets" class="tabcontent">
-
                 <table class="tabla">
                     <thead>
                         <tr>

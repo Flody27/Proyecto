@@ -6,21 +6,27 @@ include_once 'conexionDB.php';
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
         $query = $db->query("CALL `singup`('$name','$firstSurname','$secondSurname','$username','$password_hash','$gender',
         $idUnidad,'$accountStatement',$privileges);");
+        desconectarDB($db);
         if($query){
             return true;
         }else{
             echo mysqli_error($db);
             return false;
         }
-        desconectarDB($db);
     }
     
-
     function getUsersDB(){
         $db = conectarDB();
         $users = $db->query("CALL `getUsers`();");
         desconectarDB($db);
         return $users;
+    }
+
+    function getUserDB($id){
+        $db = conectarDB();
+        $user = $db->query("CALL `getUser`('$id');");
+        desconectarDB($db);
+        return $user;
     }
     
     function getRolesDB(){
@@ -37,4 +43,28 @@ include_once 'conexionDB.php';
         return $unidades;
     }
 
-?>
+    function delete($id){
+        $db = conectarDB();
+        $query=$db->query("DELETE FROM `user` WHERE id_persona = '$id'");
+        desconectarDB($db);
+        if($query){
+            return true;
+        }else{
+            echo mysqli_error($db);
+            return false; 
+        }
+    }
+
+    function updateDB($id,$name,$firstSurname,$secondSurname,$username,$password,$gender,
+    $idUnidad,$accountStatement,$privileges){
+        $db = conectarDB();
+        $query = $db->query(" CALL `updateUser`($id,'$name','$firstSurname','$secondSurname','$username','$password','$gender',
+        $idUnidad,'$accountStatement',$privileges);");
+        desconectarDB($db);
+        if($query){
+            return true;
+        }else{
+            echo mysqli_error($db);
+            return false; 
+        }
+    }
