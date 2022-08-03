@@ -42,7 +42,7 @@ function getUsers()
         echo "<td>" . $item['id_privilegio'] . "-" . $item['nombre_privilegio'] . "</td>";
         echo "<td><button class='button' ><a href='Update-User.php?idper=" . $item['id_persona'] . "'>Editar o Eliminar</a>
             </button></td>";
-        echo "<tr>";
+        echo "</tr>";
     }
 }
 

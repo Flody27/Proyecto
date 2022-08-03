@@ -104,7 +104,7 @@ include "Componentes.php";
 
         <!-------------------- INICIO TABLA -------------->
         <div class="contenido">
-            <table class="tabla">
+            <table class="tabla table-sortable">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -196,6 +196,8 @@ include "Componentes.php";
 
     <script src="../js/script.js"></script>
     <script src="../JS/Modal.js"></script>
+    <script src="../JS/sortTable.js"></script>
+ 
 </body>
 </div>
 

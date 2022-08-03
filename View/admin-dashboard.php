@@ -143,7 +143,7 @@ include "Componentes.php";
         <!-------------------- INICIO TABLA -------------->
         <div class="contenido">
             <div id="Tickets" class="tabcontent">
-                <table class="tabla">
+                <table class="tabla table-sortable">
                     <thead>
                         <tr>
                             <th># Ticket</th>
@@ -161,7 +161,7 @@ include "Componentes.php";
             </div>
             <div id="Inventario" class="tabcontent">
 
-                <table class="tabla">
+                <table class="tabla table-sortable">
                     <thead>
                         <tr>
                             <th>Serie</th>
@@ -183,7 +183,7 @@ include "Componentes.php";
 
             <div id="Unidades" class="tabcontent">
 
-                <table class="tabla">
+                <table class="tabla table-sortable">
                     <thead>
                         <tr>
                             <th>Id Unidad</th>
@@ -271,6 +271,7 @@ include "Componentes.php";
 
 
     <script src="../js/script.js"></script>
+    <script src="../JS/sortTable.js"></script>
 </body>
 
 </html>
