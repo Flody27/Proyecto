@@ -41,23 +41,23 @@ include "Componentes.php";
                     <input type="search" placeholder="Buscar...">
                 </li>
                 <ul class="menu-links">
-                    <li>
-                        <button class="tablink" onclick="openPage('Unidades', this)">
+                <li class="nav-link">
+                        <a href="admin-inventario.php">
                             <i class='bx bxs-bell icon'></i>
                             <span class="text nav-text">Notificaciones</span>
-                        </button>
+                        </a>
                     </li>
-                    <li>
-                        <button class="tablink" onclick="openPage('Tickets', this)" id="defaultOpen">
+                    <li class="nav-link">
+                        <a href="admin-tickets.php">
                             <i class='bx bxs-receipt icon'></i>
                             <span class="text nav-text">Órdenes</span>
-
+                        </a>
                     </li>
-                    <li>
-                        <button class="tablink" onclick="openPage('Inventario', this)">
+                    <li class="nav-link">
+                        <a href="admin-inventario.php">
                             <i class='bx bxs-spreadsheet icon'></i>
                             <span class="text nav-text">Inventario</span>
-                        </button>
+                        </a>
                     </li>
                     <li class="nav-link">
                         <a href="admin-usuarios.php">
