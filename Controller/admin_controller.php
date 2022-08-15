@@ -39,9 +39,11 @@ function TablaTickets(){
         echo "<tr>";
             echo "<td>" . $ticket["No_Ticket"] . "</td>";
             echo "<td>" . $ticket["fecha_apertura"] . "</td>";
-            echo "<td>" . $ticket["id_user_solicitante"] . "</td>";
+            echo "<td>" . $ticket["nombre"] . " " . $ticket["apellido1"] . " " . $ticket["apellido2"] . "</td>";
             echo "<td>" . $ticket["estado_ticket"] . "</td>";
-            echo '<td><input type="button" value="Ver" class="abrir_modal" id="boton_prueba" onclick="#"></td>';
+            echo '<td>
+            <a class="btn" href="ticket.php?q=' . $ticket["No_Ticket"] . '">Ver</a>
+          </td>';
         echo "</tr>";            
     }
 }

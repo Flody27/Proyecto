@@ -23,7 +23,7 @@ include "Componentes.php";
         <header>
             <div class="image-text">
                 <span class="image">
-                <a href="admin-dashboard.php"><img  src="../logo.png" alt="logo"></a>
+                    <a href="admin-dashboard.php"><img src="../logo.png" alt="logo"></a>
                 </span>
 
                 <div class="text header-text">
@@ -142,46 +142,8 @@ include "Componentes.php";
 
         <!-------------------- INICIO TABLA -------------->
         <div class="contenido">
-            <div id="Tickets" class="tabcontent">
-                <table class="tabla table-sortable">
-                    <thead>
-                        <tr>
-                            <th># Ticket</th>
-                            <th>Fecha</th>
-                            <th>Solicitante</th>
-                            <th>Estado</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php TablaTickets(); ?>
-                    </tbody>
-                </table>
 
-            </div>
-            <div id="Inventario" class="tabcontent">
-
-                <table class="tabla table-sortable">
-                    <thead>
-                        <tr>
-                            <th>Serie</th>
-                            <th>Placa</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Categoría</th>
-                            <th>Partida</th>
-                            <th>Disponibildad</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php TablaInventario(); ?>
-                    </tbody>
-                </table>
-
-            </div>
-
-            <div id="Unidades" class="tabcontent">
+            <div id="Unidades" class="tabla_contenido">
 
                 <table class="tabla table-sortable">
                     <thead>
@@ -193,75 +155,11 @@ include "Componentes.php";
                         </tr>
                     </thead>
                     <tbody>
-                        <?php LlenadoTabla(); ?>
+                        
                     </tbody>
                 </table>
             </div>
-        </div>
-
-        <div class="contenedor-modal">
-            <div class="modal modal-close">
-                <i class='bx bxs-up-arrow cierre_modal'></i>
-                <div class="detalle-ticket">
-                    <div class="header-ticket">
-                        <div class="no_ticket">
-                            <h1 class="no_ticket">Ticket:</h1>
-                            <input type="text" id="numero" name="numero" value="" readonly="true">
-                        </div>
-                        <div class="fecha_apertura">
-                            <h2 class="etiqueta_fecha">Fecha:</h2>
-                            <input type="text" id="fecha" name="fecha" value="" readonly="true">
-                        </div>
-                        <div class="solicitante">
-                            <h2 class="etiqueta_solicitante">Solicitante:</h2>
-                            <input type="text" id="nombre" name="nombre" value="" readonly="true">
-                        </div>
-                        <div class="estado_ticket">
-                            <h2 class="etiqueta_estado">Estado:</h2>
-                            <input type="text" id="estado" name="estado" value="" readonly="true">
-                        </div>
-                    </div>
-
-                    <div class="detalles">
-                        <div class="tabla_productos">
-                            <h1 class="titulo_productos">Producto Solicitado</h1>
-                            <table class="productos">
-                                <thead>
-                                    <tr>
-                                        <th>Partida</th>
-                                        <th>Descripción</th>
-                                        <th>Cantidad</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- /*<?php //LlenadoTabla(); 
-                                            ?>*/ -->
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="tabla_anotaciones">
-                            <h1 class="titulo_anotaciones">Anotaciones</h1>
-                            <table class="anotaciones">
-                                <thead>
-                                    <tr>
-                                        <th>Fecha</th>
-                                        <th>Autor</th>
-                                        <th>Comentario</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- /*<?php //LlenadoTabla(); 
-                                            ?>*/ -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        </div>  
     </section>
 
 
