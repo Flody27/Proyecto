@@ -1,6 +1,6 @@
 <?php
     function conectarDB(){
-        $hostname = 'localhost:3306';
+        $hostname = 'localhost:3307';
         $user ='root';
         $password = '';
         $database = 'proyecto';

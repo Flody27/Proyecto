@@ -78,4 +78,30 @@ function TablaComentariosTicket($No_ticket)
             echo "<option value=". $item["id_partida"] ."-" . $item["descripcion_partida"] . "</option>";
         }
     } 
+
+    function ConsultarTicketU($Usuario)
+{
+    $listaTicketUsuario = ConsultarTicketUModel($Usuario);
+
+    while ($item = mysqli_fetch_array($listaTicketUsuario)) {
+
+            echo "<tr>";
+            echo "<td>" . $item["No_Ticket"] . "</td>";
+            echo "<td>" . $item["fecha_apertura"] . "</td>";
+            echo "<td>" . $item["id_user_solicitante"] . "</td>";
+            echo "<td>" . $item["estado_ticket"] . "</td>";
+            echo "</tr>";
+        
+        
+    }
+}
+
+function ConsultarSolicitante($Usuario)
+{       
+    $listaUsuario = ConsultarSolicitanteModel($Usuario);
+    while($item = mysqli_fetch_array($listaUsuario))
+    {   
+        echo "<option value=". $item["id_persona"] ."-" . $item["nombre"] . "</option>";
+    }
+} 
 ?>

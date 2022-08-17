@@ -60,4 +60,20 @@ include_once "conexionDB.php";
         desconectarDB($instancia);
         return $listaPartidas;
     }
+    function ConsultarTicketUModel($Usuario)
+    {    
+        $instancia = conectarDB();
+        $listaTicketUsuario = $instancia -> query("CALL ConsultarTicketU('$Usuario');");
+        desconectarDB($instancia);
+        return $listaTicketUsuario;
+    }
+
+    function ConsultarSolicitanteModel($Usuario)
+    {    
+        $instancia = conectarDB();
+        $listaUsuario = $instancia -> query("CALL ConsultarSolicitante('$Usuario');");
+        desconectarDB($instancia);
+        return $listaUsuario;
+    }
+
 ?>
