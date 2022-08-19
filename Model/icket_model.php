@@ -13,7 +13,7 @@ include_once "conexionDB.php";
         function ConsultarDetalleTicket($No_ticket){
             $instancia = conectarDB();
 
-            $listaDetalles = $instancia -> query ("CALL Consultar_Ticket($No_ticket);");
+            $listaDetalles = $instancia -> query ("CALL Consultar_Detalle_Ticket($No_ticket);");
 
             desconectarDB($instancia);
 
