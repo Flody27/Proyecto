@@ -169,4 +169,22 @@ if (isset($_POST['update-btn'])) {
     } else {
         echo '<p>Error</p>';
     }
+
+
 }
+if(isset($_POST['update-btn']))
+{
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $firstSurname = $_POST['firstSurname'];
+    $secondSurname = $_POST['secondSurname'];
+    $gender = $_POST['gender'];
+    $idUnidad = $_POST['idUnidad'];
+    $accountStatement = $_POST['accountStatement'];
+    $username =  $_POST['username'];
+    $password = $_POST['password'];
+    
+    ActualizarUsuariosModel($cedula, $Nombre, $Correo, $Contraseña, $Rol);
+    header("Location: ../View/user-modify.php");
+}
+

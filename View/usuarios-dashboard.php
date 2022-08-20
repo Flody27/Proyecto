@@ -11,10 +11,10 @@ include "Componentes.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Administrador - Dashboard</title>
+    <title>Usuarios - Dashboard</title>
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../css/usuario.css">
+    <link rel="stylesheet" href="../css/user.css">
 </head>
 
 <body>
@@ -54,7 +54,7 @@ include "Componentes.php";
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="">
+                    <a href="user-modify.php">
                             <i class='bx bxs-spreadsheet icon'></i>
                             <span class="text nav-text">Inventario</span>
                         </a>
@@ -81,6 +81,7 @@ include "Componentes.php";
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
+        
         <?php navbar(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
