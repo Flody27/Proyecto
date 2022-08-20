@@ -184,7 +184,7 @@ if(isset($_POST['update-btn']))
     $username =  $_POST['username'];
     $password = $_POST['password'];
     
-    ActualizarUsuariosModel($cedula, $Nombre, $Correo, $Contraseña, $Rol);
+    ActualizarUsuariosModel($name, $firstSurname, $secondSurname, $gender, $idUnidad,$accountStatement,$username,$password);
     header("Location: ../View/user-modify.php");
 }
 
