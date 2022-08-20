@@ -5,7 +5,13 @@ include '../Model/Login-Model.php';
         $password = $_POST['password'];
         if(login($username,$password)){
             $_SESSION['username'] = $username;
-            header('Location: ../View/admin-dashboard.php');
+            if($_SESSION['rol'] == 'Administrador'){
+             header('Location: ../View/admin-dashboard.php');
+            }
+            elseif($_SESSION['rol'] == 'Cliente'){
+                header('Location: ../View/cliente-dashboard.php');
+            }
+            
         }else{
             echo "<p>Error inicio sesion</p>";
         }

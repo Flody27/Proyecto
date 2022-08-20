@@ -1,6 +1,8 @@
 <?php
-include "..\controller\admin_controller.php";
+include_once "..\controller\admin_controller.php";
+include_once "..\controller\icket_controller.php";
 include "Componentes.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -11,10 +13,11 @@ include "Componentes.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Administrador - Dashboard</title>
+    <title>Órdenes Recibidas</title>
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../CSS/Modal.css">
 </head>
 
 <body>
@@ -41,7 +44,7 @@ include "Componentes.php";
                     <input type="search" placeholder="Buscar...">
                 </li>
                 <ul class="menu-links">
-                <li class="nav-link">
+                    <li class="nav-link">
                         <a href="admin-inventario.php">
                             <i class='bx bxs-bell icon'></i>
                             <span class="text nav-text">Notificaciones</span>
@@ -68,8 +71,6 @@ include "Componentes.php";
                 </ul>
                 </ul>
             </div>
-
-
             <div class="bottom-content">
                 <li class="">
                     <form action="../Controller/Login-Controller.php" method="post">
@@ -91,85 +92,96 @@ include "Componentes.php";
 
         <!-------------------- INICIO RESUMEN -------------->
         <div class="tarjetas">
-            <h1>Resumen Inventario</h1>
-            <div class="dashboard-container">
-
-                <div class="card tarjeta1">
-                    <div class="info-portatiles">
-                        <h3>Portátiles</h3>
-                        <h2><?php CantPortatilesDisponibles(); ?></h2>
-                    </div>
-                </div>
-
-                <div class="card tarjeta2">
-                    <div class="info-workstations">
-                        <h3>Workstations</h3>
-                        <h2><?php CantWorkstationDisponibles(); ?></h2>
-                    </div>
-                </div>
-
-                <div class="card tarjeta3">
-                    <div class="info-desktops">
-                        <h3>Desktops</h3>
-                        <h2><?php CantDesktopDisponibles(); ?></h2>
-                    </div>
-                </div>
-
-                <div class="card tarjeta4">
-                    <div class="info-Impresoras">
-                        <h3>Impresoras</h3>
-                        <h2><?php CantImpresoraDisponibles(); ?></h2>
-                    </div>
-                </div>
-
-                <div class="card tarjeta5">
-                    <div class="info-scanners">
-                        <h3>Scanners</h3>
-                        <h2><?php CantScannerDisponibles(); ?></h2>
-                    </div>
-                </div>
-
-                <div class="card tarjeta6">
-                    <div class="info-servidores">
-                        <h3>Servidores</h3>
-                        <h2><?php CantServerDisponibles(); ?></h2>
-                    </div>
-                </div>
-            </div>
+            <h1>Lista de tickets</h1>
+            <button onclick="showModal('addTicket');" id="AddBtn" class="button btn-agregar">
+                <i class='bx bxs-plus-circle'></i>
+                <p>Agregar Ticket</p>
+            </button>
         </div>
 
         <!-------------------- FIN RESUMEN -------------->
 
         <!-------------------- INICIO TABLA -------------->
         <div class="contenido">
-
-            <div id="Unidades" class="tabla_contenido">
-
+            <div id="Tickets" class="tabla_contenido">
                 <table class="tabla table-sortable">
                     <thead>
                         <tr>
-                            <th>Id Unidad</th>
-                            <th>Nombre Unidad</th>
-                            <th>ID Región</th>
+                            <th># Ticket</th>
+                            <th>Fecha</th>
+                            <th>Solicitante</th>
+                            <th>Estado</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <?php TablaTickets(); ?>
                     </tbody>
                 </table>
             </div>
-        </div>  
+        </div>
+
     </section>
 
 
+    <!--Modal -->
+    <div id="addTicket" class="modal">
+        <!-- Contenido -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <i id="close-x" class="cerrar-btn bx bx-x"></i>
+                <p>Crear Ticket</p>
+            </div>
+            <form action="../Controller/icket_controller.php" method="POST">
+                <div class="modal-body">
 
+                    <div class="col">
+                        <label for="no_ticket"># Ticket</label><br>
+                        <input type="text" name="no_ticket" id="no_ticket" Value="<?php Nvo_Nro_Ticket(); ?>" readonly="true"><br>
+                        <label for="solicitante">Solicitante</label><br>
+                        <input type="text" name="solicitante" id="solicitante" placeholder="Inserte el username en minúsculas..." required><br>
+                        <div class="row">
+                            <div class="tabla_productos">
+                                <h1 class="titulo_productos">Producto a Solicitar</h1>
+                                <table class="productos">
+                                    <thead>
+                                        <tr>
+                                            <th>Cantidad</th>
+                                            <th>Producto</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" name="cant_prod" id="cant_prod" required><br></td>
+                                            <td> <select name="txtPartida" class="form-control" required>
+                                                    <option value="" disabled="disabled" selected="selected">Selecione Partida</option>
+                                                    <?php
+                                                    ConsultarPartidas();
+                                                    ?>
+                                                </select><br>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
-
-
+                </div>
+                <div class="modal-footer">
+                    <button class="button" id="close-btn" type="button">Cerrar</button>
+                    <button class="button" type="submit" name="btnCrearTicket">Crear Ticket</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script src="../js/script.js"></script>
+    <script src="../JS/Modal.js"></script>
     <script src="../JS/sortTable.js"></script>
+
 </body>
+</div>
 
 </html>
