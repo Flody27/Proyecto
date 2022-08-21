@@ -136,6 +136,7 @@ include "Componentes.php";
                 <div class="modal-body">
 
                     <div class="col">
+                        <input type="text" name="id_creador" id="id_creador" Value="<?php echo $_SESSION["id"]; ?>" readonly="true" style="border: none; color: white;">                        
                         <label for="no_ticket"># Ticket</label><br>
                         <input type="text" name="no_ticket" id="no_ticket" Value="<?php Nvo_Nro_Ticket(); ?>" readonly="true"><br>
                         <label for="solicitante">Solicitante</label><br>

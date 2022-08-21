@@ -1,5 +1,5 @@
 <?php
-include_once "..\controller\admin_controller.php";
+include_once "..\controller\productos_controller.php";
 include "Componentes.php";
 ?>
 
@@ -91,9 +91,9 @@ include "Componentes.php";
         <!-------------------- INICIO RESUMEN -------------->
         <div class="tarjetas">
             <h1>Inventario</h1>
-            <button onclick="showModal('addUser');" id="AddBtn" class="button btn-agregar">
+            <button onclick="showModal('addTicket');" id="AddBtn" class="button btn-agregar">
                 <i class='bx bxs-plus-circle'></i>
-                <p>Agregar Usuario</p>
+                <p>Agregar Producto</p>
             </button>
         </div>
 
@@ -125,69 +125,45 @@ include "Componentes.php";
     </section>
 
 
-    <!--Modal -->
-    <div id="addUser" class="modal">
+   <!--Modal -->
+   <div id="addTicket" class="modal">
         <!-- Contenido -->
         <div class="modal-content">
             <div class="modal-header">
                 <i id="close-x" class="cerrar-btn bx bx-x"></i>
-                <p>Agregar usuario</p>
+                <p>Crear Ticket</p>
             </div>
-            <form action="../Controller/Usuario-Controller.php" method="POST">
+            <form action="../Controller/productos_controller.php" method="POST">
                 <div class="modal-body">
 
                     <div class="col">
-                        <label for="name">Nombre</label><br>
-                        <input type="text" name="name" id="name" required><br>
-                        <label for="firstSurname">1º Apellido</label><br>
-                        <input type="text" name="firstSurname" id="firstSurname" required><br>
-                        <label for="secondSurname">2º Apellido</label><br>
-                        <input type="text" name="secondSurname" id="secondSurname" required><br>
-                        <label for="username">Nombre de usuario</label><br>
-                        <input type="text" name="username" id="username" required><br>
-                        <label for="password">Contraseña</label><br>
-                        <input type="password" name="password" id="password" required><br>
+                        <label for="name">Serie</label><br>
+                        <input type="text" name="serie" id="serie" required><br>
+                        <label for="firstSurname">Placa</label><br>
+                        <input type="text" name="placa" id="placa" required><br>
+                        <label for="secondSurname">Marca</label><br>
+                        <input type="text" name="marca" id="marca" required><br>
+                        <label for="username">Modelo</label><br>
+                        <input type="text" name="modelo" id="modelo" required><br>
                     </div>
 
                     <div class="col">
-                        <label for="gender">Selecione un genero</label><br>
-                        <div class="radioBtns">
-                            <input type="radio" name="gender" id="gender" value="Masculino" required>
-                            <p>Masculino</p>
-                            <input type="radio" name="gender" id="gender" value="Femenino" required>
-                            <p>Femenino</p>
-                        </div>
-                        <label for="idUnidad">Unidad
-
-                        </label><br>
-                        <!-- <input name="idUnidad" type="number" list="unidades"/><br>
-                        <datalist id="unidades">
-                          
-                        </datalist> -->
-                        <select name="idUnidad" id="idUnidad">
-                            <option value="" disabled="disabled" selected="selected">Selecione una unidad</option>
+                        <label for="categoria">Categoría de Producto</label><br>
+                        <select name="id_categoria" id="id_categoria">
+                            <option value="" disabled="disabled" selected="selected">Selecione una categoría</option>
                             <?php getUnidades(); ?>
                         </select><br>
 
-                        <label for="privileges">Privilegios</label><br>
-
-                        <select name="privileges" id="privileges" required>
-                            <option value="" disabled="disabled" selected="selected">Selecione un rol</option>
-                            <?php getRoles(); ?>
+                        <label for="idUnidad">Partida</label><br>
+                        <select name="id_partida" id="id_partida">
+                            <option value="" disabled="disabled" selected="selected">Selecione una partida</option>
+                            <?php ConsultarPartidas(); ?>
                         </select><br>
-                        <label for="accountStatement">Estado de cuenta</label><br>
-                        <div class="radioBtns">
-                            <input type="radio" name="accountStatement" id="accountStatement" value="Activo" required>
-                            <p>Activo</p>
-                            <input type="radio" name="accountStatement" id="accountStatement" value="Inactivo" required>
-                            <p>Inactivo</p>
-                        </div>
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button class="button" id="close-btn" type="button">Cerrar</button>
-                    <button class="button" type="submit" name="sing-up-btn">Agregar</button>
+                    <button class="button" type="submit" name="btnCrearTicket">Crear Ticket</button>
                 </div>
             </form>
         </div>

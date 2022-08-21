@@ -30,10 +30,10 @@ include_once "conexionDB.php";
             return $listaComentarios;
         }
 
-    function RegistrarTicketModel($id_solicitante, $nro_ticket, $partida_solicitada, $cantidad_solicitada)
+        function RegistrarTicketModel($id_solicitante, $nro_ticket, $partida_solicitada, $cantidad_solicitada, $id_creador)
         {    
             $instancia = conectarDB();
-            $instancia -> query("CALL RegistroTicketAdmin('$id_solicitante', $nro_ticket, '$partida_solicitada', $cantidad_solicitada);");
+            $instancia -> query("CALL RegistroTicketAdmin('$id_solicitante', $nro_ticket, '$partida_solicitada', $cantidad_solicitada, $id_creador);");
             desconectarDB($instancia);
         }
 

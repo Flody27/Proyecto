@@ -14,8 +14,9 @@ if (isset($_POST['btnCrearTicket'])) {
     $nro_ticket = $_POST["no_ticket"];
     $partida_solicitada = $_POST["txtPartida"];
     $cantidad_solicitada = $_POST["cant_prod"];
+    $id_creador = $_POST["id_creador"];      
 
-    if (RegistrarTicketModel($id_solicitante, $nro_ticket, $partida_solicitada, $cantidad_solicitada)
+    if (RegistrarTicketModel($id_solicitante, $nro_ticket, $partida_solicitada, $cantidad_solicitada, $id_creador)
     ) {
         header("Location: ../View/admin-tickets.php");
         echo '<p>Se logro hacer el registro correctamente</p>';
@@ -75,7 +76,7 @@ function TablaComentariosTicket($No_ticket)
         $listaPartidas = ConsultarPartidasModel();
         while($item = mysqli_fetch_array($listaPartidas))
         {   
-            echo "<option value=". $item["id_partida"] ."-" . $item["descripcion_partida"] . "</option>";
+            echo "<option value=". $item["id_partida"] .">". $item["descripcion_partida"] . "</option>";
         }
     } 
 

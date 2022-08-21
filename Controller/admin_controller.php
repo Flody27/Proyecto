@@ -15,38 +15,22 @@ function LlenadoTabla(){
     }
 }
 
-function TablaInventario(){
-    $listaInventario = ConsultarInventario();
-
-    while($producto = mysqli_fetch_array($listaInventario)){
-        echo "<tr>";
-            echo "<td>" . $producto["serie_producto"] . "</td>";
-            echo "<td>" . $producto["placa_producto"] . "</td>";
-            echo "<td>" . $producto["id_marca"] . "</td>";
-            echo "<td>" . $producto["Modelo"] . "</td>";
-            echo "<td>" . $producto["id_cat_prod"] . "</td>";
-            echo "<td>" . $producto["id_partida"] . "</td>";
-            echo "<td>" . $producto["id_estado_producto"] . "</td>";
-            echo '<td><input type="button" value="Prueba" id="boton_prueba" onclick="#"></td>';
-        echo "</tr>";            
-    }
-}
-
-function TablaTickets(){
+function TablaTickets()
+{
     $listaTickets = ConsultarTickets();
 
-    while($ticket = mysqli_fetch_array($listaTickets)){
+    while ($ticket = mysqli_fetch_array($listaTickets)) {
         echo "<tr>";
-            echo "<td>" . $ticket["No_Ticket"] . "</td>";
-            echo "<td>" . $ticket["fecha_apertura"] . "</td>";
-            echo "<td>" . $ticket["nombre"] . " " . $ticket["apellido1"] . " " . $ticket["apellido2"] . "</td>";
-            echo "<td>" . $ticket["estado_ticket"] . "</td>";
-            echo '<td>
-            <a class="btn" href="ticket.php?q=' . $ticket["No_Ticket"] . '">Ver</a>
-          </td>';
-        echo "</tr>";            
+        echo "<td>" . $ticket["No_Ticket"] . "</td>";
+        echo "<td>" . $ticket["fecha_apertura"] . "</td>";
+        echo "<td>" . $ticket["nombre"] . " " . $ticket["apellido1"] . " " . $ticket["apellido2"] . "</td>";
+        echo "<td>" . $ticket["estado_ticket"] . "</td>";
+        echo "<td><button class='button' ><a href='ticket.php?q=" . $ticket["No_Ticket"] . "'>Ver</a>
+          </button></td>";
+        echo "</tr>";
     }
 }
+
 
 
 
