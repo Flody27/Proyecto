@@ -1,6 +1,7 @@
 <?php
-include_once "..\controller\productos_controller.php";
+include "..\controller\productos_controller.php";
 include "Componentes.php";
+include_once "..\controller\Usuario-Controller.php";
 ?>
 
 <!DOCTYPE html>
@@ -85,27 +86,42 @@ include "Componentes.php";
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <?php navbar(); ?>
+        <?php navbar(); role(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
-        <!-------------------- INICIO RESUMEN -------------->
-        <div class="tarjetas">
-            <h1>Inventario</h1>
-            <button onclick="showModal('addTicket');" id="AddBtn" class="button btn-agregar">
+
+        <!-- <div class="tarjetas">
+            
+            <button onclick="showModal('addProducto');" id="AddBtn" class="button btn-agregar">
                 <i class='bx bxs-plus-circle'></i>
                 <p>Agregar Producto</p>
             </button>
+        </div> -->
+
+        <!-------------------- INICIO FUNCIONES -------------->
+        <div class="funciones">
+        <h1>Inventario</h1>
+        <button onclick="showModal('addProducto');" id="AddBtn" class="button btn-agregar">
+                <i class='bx bxs-plus-circle'></i>
+                <p>Agregar Producto</p>
+            </button>
+            <div class="search-box">
+            <p class="button search-btn">
+                    <i class="bx bx-search icon"></i>
+                </p>
+                <input id="search-input" type="text" name="search-input" value="" placeholder="escriba algo para buscar">
+            </div>
         </div>
 
-        <!-------------------- FIN RESUMEN -------------->
+        <!-------------------- FIN FUNCIONES -------------->
 
         <!-------------------- INICIO TABLA -------------->
         <div class="contenido">
             <div id="Inventario" class="tabla_contenido">
 
-                <table class="tabla table-sortable">
+                <table class="tabla table-sortable table-search">
                     <thead>
-                        <tr>
+                        <tr class="header">
                             <th>Serie</th>
                             <th>Placa</th>
                             <th>Marca</th>
@@ -126,7 +142,7 @@ include "Componentes.php";
 
 
    <!--Modal -->
-   <div id="addTicket" class="modal">
+   <div id="addProducto" class="modal">
         <!-- Contenido -->
         <div class="modal-content">
             <div class="modal-header">
@@ -151,13 +167,13 @@ include "Componentes.php";
                         <label for="categoria">Categoría de Producto</label><br>
                         <select name="id_categoria" id="id_categoria">
                             <option value="" disabled="disabled" selected="selected">Selecione una categoría</option>
-                            <?php getUnidades(); ?>
+                            <?php //getUnidades(); ?>
                         </select><br>
 
                         <label for="idUnidad">Partida</label><br>
                         <select name="id_partida" id="id_partida">
                             <option value="" disabled="disabled" selected="selected">Selecione una partida</option>
-                            <?php ConsultarPartidas(); ?>
+                            <?php //ConsultarPartidas(); ?>
                         </select><br>
                     </div>
 
@@ -169,7 +185,7 @@ include "Componentes.php";
         </div>
     </div>
 
-    <script src="../js/script.js"></script>
+    <script src="../JS/script.js"></script>
     <script src="../JS/Modal.js"></script>
     <script src="../JS/sortTable.js"></script>
 

@@ -1,6 +1,7 @@
 <?php
 include_once "..\controller\Usuario-Controller.php";
 include "Componentes.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +25,8 @@ include "Componentes.php";
         <header>
             <div class="image-text">
                 <span class="image">
-                    
-                    <a href="admin-dashboard.php"><img  src="../logo.png" alt="logo"></a>
+
+                    <a href="admin-dashboard.php"><img src="../logo.png" alt="logo"></a>
                 </span>
 
                 <div class="text header-text">
@@ -44,19 +45,19 @@ include "Componentes.php";
                 </li>
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="admin-dashboard.php">
+                        <a href="admin-inventario.php">
                             <i class='bx bxs-bell icon'></i>
                             <span class="text nav-text">Notificaciones</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="admin-dashboard.php">
+                        <a href="admin-tickets.php">
                             <i class='bx bxs-receipt icon'></i>
                             <span class="text nav-text">Órdenes</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="admin-dashboard.php">
+                        <a href="admin-inventario.php">
                             <i class='bx bxs-spreadsheet icon'></i>
                             <span class="text nav-text">Inventario</span>
                         </a>
@@ -67,7 +68,6 @@ include "Componentes.php";
                             <span class="text nav-text">Admin. Usuarios</span>
                         </a>
                     </li>
-                </ul>
                 </ul>
             </div>
 
@@ -88,25 +88,32 @@ include "Componentes.php";
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <?php navbar(); ?>
+        <?php navbar();
+        role(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
-        <!-------------------- INICIO RESUMEN -------------->
-        <div class="tarjetas">
+        <!-------------------- INICIO FUNCIONES -------------->
+        <div class="funciones">
             <h1>Lista de usuarios</h1>
             <button onclick="showModal('addUser');" id="AddBtn" class="button btn-agregar">
                 <i class='bx bxs-plus-circle'></i>
                 <p>Agregar Usuario</p>
             </button>
+            <div class="search-box">
+                <p class="button search-btn">
+                    <i class="bx bx-search icon"></i>
+                </p>
+                <input id="search-input" type="text" name="search-input" value="" placeholder="escriba algo para buscar">
+            </div>
         </div>
 
-        <!-------------------- FIN RESUMEN -------------->
+        <!-------------------- FIN FUNCIONES -------------->
 
         <!-------------------- INICIO TABLA -------------->
         <div class="contenido">
-            <table class="tabla table-sortable">
+            <table class="tabla table-sortable table-search">
                 <thead>
-                    <tr>
+                    <tr class="header">
                         <th>ID</th>
                         <th>Nombre completo</th>
                         <th>Username</th>
@@ -194,10 +201,10 @@ include "Componentes.php";
         </div>
     </div>
 
-    <script src="../js/script.js"></script>
+    <script src="../JS/script.js"></script>
     <script src="../JS/Modal.js"></script>
     <script src="../JS/sortTable.js"></script>
- 
+
 </body>
 </div>
 

@@ -1,6 +1,8 @@
 <?php
 include_once "../Controller/admin_controller.php";
 include_once "../Controller/icket_controller.php";
+include_once "..\controller\Usuario-Controller.php";
+
 include "Componentes.php";
 
 $no_ticket = $_GET["q"];
@@ -91,7 +93,7 @@ $Ticket = ConsultarTicket($no_ticket);
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <?php navbar(); ?>
+        <?php navbar(); role(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
         <!-------------------- INICIO FORMULARIO -------------->
@@ -106,7 +108,7 @@ $Ticket = ConsultarTicket($no_ticket);
                             <label for="fecha">Fecha: </label><br>
                             <input type="text" name="fecha" id="fecha" Value="<?php echo $Ticket["fecha_apertura"]; ?>" readonly="true"><br>
                             <label for="solicitante">Solicitante: </label><br>
-                            <input type="text" name="solicitante" id="solicitante" Value="<?php echo $Ticket["nombre"]; ?>"required><br>
+                            <input type="text" name="solicitante" id="solicitante" Value="<?php echo $Ticket["nombre"]; ?>" required><br>
                             <label for="estado">Estado de Ticket: </label><br>
                             <input type="text" name="estado_ticket" id="estado_ticket" Value="<?php echo $Ticket["estado_ticket"]; ?>" required><br>
                         </div>
@@ -117,7 +119,7 @@ $Ticket = ConsultarTicket($no_ticket);
                                 <table class="productos">
                                     <thead>
                                         <tr>
-                                            <th>Partida</th>                                            
+                                            <th>Partida</th>
                                             <th>Descripcion</th>
                                             <th>Cantidad</th>
                                             <th></th>
@@ -143,9 +145,9 @@ $Ticket = ConsultarTicket($no_ticket);
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php TablaComentariosTicket($no_ticket); ?>
+                                        <?php TablaComentariosTicket($no_ticket); ?>
                                     </tbody>
-                                </table>  
+                                </table>
                             </div>
                         </div>
                     </div>

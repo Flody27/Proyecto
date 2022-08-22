@@ -5,10 +5,11 @@ function login($username, $password)
     $db = conectarDB();
     $query = $db->query(" CALL `login`('$username')");
     $result = $query->fetch_assoc();
-    if ($result) {
+    if ($result['username'] == $username) {
         if ($result['estado_cuenta'] == "Activo") {
             if (password_verify($password, $result['password'])) {
                 session_start();
+                $_SESSION['username'] = $result['username'];
                 $_SESSION['rol'] = $result['nombre_privilegio'];
                 $_SESSION['id'] = $result['id_persona'];
                 return true;

@@ -1,5 +1,6 @@
 <?php
 include_once "../Controller/productos_controller.php";
+ include_once "..\Controller\Usuario-Controller.php";
 include "Componentes.php";
 
 $no_producto = $_GET["q"];
@@ -90,7 +91,7 @@ $Producto = ConsultarProducto($no_producto);
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <?php navbar(); ?>
+        <?php navbar(); role();?>
         <!--------------------- FIN NAVBAR------------- -->
 
         <!-------------------- INICIO FORMULARIO -------------->

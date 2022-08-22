@@ -24,7 +24,8 @@ $item = getUser($idPersona);
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="../logo.png" alt="logo">
+
+                    <a href="admin-dashboard.php"><img src="../logo.png" alt="logo"></a>
                 </span>
 
                 <div class="text header-text">
@@ -43,19 +44,19 @@ $item = getUser($idPersona);
                 </li>
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="">
+                        <a href="admin-inventario.php">
                             <i class='bx bxs-bell icon'></i>
                             <span class="text nav-text">Notificaciones</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="">
+                        <a href="admin-tickets.php">
                             <i class='bx bxs-receipt icon'></i>
                             <span class="text nav-text">Órdenes</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="">
+                        <a href="admin-inventario.php">
                             <i class='bx bxs-spreadsheet icon'></i>
                             <span class="text nav-text">Inventario</span>
                         </a>
@@ -66,7 +67,6 @@ $item = getUser($idPersona);
                             <span class="text nav-text">Admin. Usuarios</span>
                         </a>
                     </li>
-                </ul>
                 </ul>
             </div>
 
@@ -88,7 +88,7 @@ $item = getUser($idPersona);
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <?php navbar(); ?>
+        <?php navbar(); role();?>
         <!--------------------- FIN NAVBAR------------- -->
 
         <!-------------------- INICIO FORMULARIO -------------->

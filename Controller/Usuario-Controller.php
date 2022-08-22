@@ -119,13 +119,13 @@ function getUnidades()
     }
 }
 
-function getUnidad($Unidad){
+function getUnidad($Unidad)
+{
     $rolesList = getUnidadesDB();
     while ($item = mysqli_fetch_array($rolesList)) {
-        if($item['nombre_unidad'] == $Unidad){
+        if ($item['nombre_unidad'] == $Unidad) {
             echo "<option selected value=" . $item['id_unidad'] . ">" . $item['id_unidad'] . "- " . $item['nombre_unidad'] . "</option>";
-
-        }else{
+        } else {
             echo "<option value=" . $item['id_unidad'] . ">" . $item['id_unidad'] . "- " . $item['nombre_unidad'] . "</option>";
         }
     }
@@ -169,11 +169,8 @@ if (isset($_POST['update-btn'])) {
     } else {
         echo '<p>Error</p>';
     }
-
-
 }
-if(isset($_POST['update-btn']))
-{
+if (isset($_POST['update-btn'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $firstSurname = $_POST['firstSurname'];
@@ -183,8 +180,18 @@ if(isset($_POST['update-btn']))
     $accountStatement = $_POST['accountStatement'];
     $username =  $_POST['username'];
     $password = $_POST['password'];
-    
-    ActualizarUsuariosModel($name, $firstSurname, $secondSurname, $gender, $idUnidad,$accountStatement,$username,$password);
-    header("Location: ../View/user-modify.php");
+
+    // ActualizarUsuariosModel($name, $firstSurname, $secondSurname, $gender, $idUnidad,$accountStatement,$username,$password);
+    // header("Location: ../View/user-modify.php");
 }
 
+
+
+
+function role()
+{
+    if ($_SESSION['rol'] != 'Administrador') {
+        header('location: ../View/cliente-dashboard.php');
+    }
+    
+}

@@ -23,8 +23,8 @@ $item = getUser($idPersona);
     <nav class="sidebar close">
         <header>
             <div class="image-text">
-                <span class="image">
-                    <img src="../logo.png" alt="logo">
+            <span class="image">
+                    <a href="cliente-dashboard.php"><img src="../logo.png" alt="logo"></a>
                 </span>
 
                 <div class="text header-text">

@@ -27,3 +27,18 @@ document.querySelectorAll(".table-sortable th").forEach(headerCell =>{
         sortTableByColum(tableElement,headerIndex,!currentIsAscending );
     })
 });
+
+
+const searchInput = document.getElementById("search-input");
+searchInput.addEventListener("keyup", function () {
+  const trs = document.querySelectorAll(".table-search tr:not(.header)");
+  const filter = document.querySelector("#search-input").value;
+  const regex = new RegExp(filter, "i");
+  const isFoundInTds = (td) => regex.test(td.innerHTML);
+  const isFound = (childrenArr) => childrenArr.some(isFoundInTds);
+  const setTrStyleDisplay = ({ style, children }) => {
+    style.display = isFound([...children]) ? "" : "none";
+  };
+
+  trs.forEach(setTrStyleDisplay);
+});

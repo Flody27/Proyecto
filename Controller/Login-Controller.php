@@ -1,45 +1,39 @@
 <?php
-include '../Model/Login-Model.php'; 
-    if(isset($_POST['login-btn'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        if(login($username,$password)){
-            $_SESSION['username'] = $username;
-            if($_SESSION['rol'] == 'Administrador'){
-             header('Location: ../View/admin-dashboard.php');
-            }
-            elseif($_SESSION['rol'] == 'Cliente'){
-                header('Location: ../View/cliente-dashboard.php');
-            }
-            
-        }else{
-            echo "<p>Error inicio sesion</p>";
+include '../Model/Login-Model.php';
+if (isset($_POST['login-btn'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    if (login($username, $password)) {
+        if ($_SESSION['rol'] == 'Administrador') {
+            header('Location: ../View/admin-dashboard.php');
         }
+        if ($_SESSION['rol'] == 'Cliente') {
+            header('Location: ../View/cliente-dashboard.php');
+        }
+    } else {
+        echo "<p>Error inicio sesion</p>";
     }
+}
 
-    if(isset($_POST['logout-btn'])){
-        session_start();
+if (isset($_POST['logout-btn'])) {
+    session_start();
+    session_destroy();
+    header('location: ../View/login.php');
+}
+
+function ValidarSesion()
+{
+    if ($_SESSION['rol'] == null) {
         session_destroy();
-        header('location: ../View/login.php');
+        header("Location: ../View/login.php");
+    } 
+}
+
+if (isset($_POST['change'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $password_hash = password_hash($password, PASSWORD_BCRYPT);
+    if (chagePassword($username, $password_hash)) {
+        header("Location: ../View/login.php");
     }
-
-    function ValidarSesion()
-    {       
-        if($_SESSION['rol'] == null)
-        {
-            session_destroy();
-            header("Location: ../View/login.php");
-        }
-    }
-
-    if(isset($_POST['change'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $password_hash = password_hash($password, PASSWORD_BCRYPT);
-        if(chagePassword($username,$password_hash)){
-            header("Location: ../View/login.php");
-        }
-
-    }
-
-?>
+}

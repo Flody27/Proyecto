@@ -1,6 +1,8 @@
 <?php
 include "..\controller\admin_controller.php";
+include_once "..\Controller\Usuario-Controller.php";
 include "Componentes.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +43,7 @@ include "Componentes.php";
                     <input type="search" placeholder="Buscar...">
                 </li>
                 <ul class="menu-links">
-                <li class="nav-link">
+                    <li class="nav-link">
                         <a href="admin-inventario.php">
                             <i class='bx bxs-bell icon'></i>
                             <span class="text nav-text">Notificaciones</span>
@@ -66,7 +68,7 @@ include "Componentes.php";
                         </a>
                     </li>
                 </ul>
-                </ul>
+                <!-- </ul> -->
             </div>
 
 
@@ -86,7 +88,9 @@ include "Componentes.php";
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <?php navbar(); ?>
+        <?php navbar();
+        role();
+        ?>
         <!--------------------- FIN NAVBAR------------- -->
 
         <!-------------------- INICIO RESUMEN -------------->
@@ -155,11 +159,11 @@ include "Componentes.php";
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                 </table>
             </div>
-        </div>  
+        </div>
     </section>
 
 

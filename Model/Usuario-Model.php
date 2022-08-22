@@ -45,7 +45,7 @@ include_once 'conexionDB.php';
 
     function delete($id){
         $db = conectarDB();
-        $query=$db->query("DELETE FROM `user` WHERE id_persona = '$id'");
+        $query=$db->query(" CALL `delete`($id);");
         desconectarDB($db);
         if($query){
             return true;

@@ -3,7 +3,6 @@ include_once "..\controller\admin_controller.php";
 include_once "..\controller\icket_controller.php";
 include_once "..\controller\Login-Controller.php";
 include "Componentes.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +26,7 @@ include "Componentes.php";
         <header>
             <div class="image-text">
                 <span class="image">
-                    <a href="admin-dashboard.php"><img src="../logo.png" alt="logo"></a>
+                    <a href="cliente-dashboard.php"><img src="../logo.png" alt="logo"></a>
                 </span>
 
                 <div class="text header-text">

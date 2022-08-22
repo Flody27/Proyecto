@@ -8,36 +8,37 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>CONVENIO MARCO - Inicio de Sesión</title>
+  <title>CONVENIO MARCO - Cambio de contraseña</title>
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../css/login.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body>
-  <section class="vh-100 gradient-custom">
+  <section class="h-100" style="background:#155db1;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card border-0 text-white" style="border-radius: 1rem; background: rgba(22,97,97,1.0) ">
+          <div class="card border-0 text-black" style="border-radius: 1rem; background: #f3c332">
             <div class="card-body p-5 text-center">
 
               <div class="mb-md-5 mt-md-4 pb-5">
                 
                 <form action="../Controller/Login-Controller.php" method="POST">
-                  <h2 class="fw-bold mb-2 text-uppercase">Cambio de contraseña</h2><br>
-                  <div class="form-outline form-white mb-4">
-                    <input type="text" id="username" name="username" class="form-control form-control-lg" />
+                <img src="../logo.png" alt="logo" style="height: 100px; margin-bottom: 20px;">
+                <h1 class="fw-bold mb-2 text-uppercase" style="padding-bottom: 15px;">Convenio Marco</h1>
+                  <h3 class="fw-bold mb-2 text-uppercase" style="padding-bottom: 15px;">Cambio de contraseña</h3>
+                  <div class="form-outline form-black mb-4">
+                    <input type="text" autocomplete="off" id="username" name="username" class="form-control form-control-lg" />
                     <label class="form-label" for="username">Ingrese su usuario</label>
                   </div>
 
-                  <div class="form-outline form-white mb-4">
+                  <div class="form-outline form-black mb-4">
                     <input type="password" name="password" id="contrasena" class="form-control form-control-lg" />
                     <label class="form-label" for="contrasena">Ingrese su nueva contraseña</label>
                   </div>
 
-                  <button class="btn btn-outline-light btn-lg px-5" name="change" type="submit">Cambiar</button>
+                  <button class="btn btn-outline-dark btn-md px-5" name="change" type="submit">Cambiar</button>
                 </form>
 
               </div>

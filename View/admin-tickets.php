@@ -2,7 +2,7 @@
 include_once "..\controller\admin_controller.php";
 include_once "..\controller\icket_controller.php";
 include "Componentes.php";
-
+include_once "..\controller\Usuario-Controller.php";
 ?>
 
 <!DOCTYPE html>
@@ -87,26 +87,38 @@ include "Componentes.php";
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <?php navbar(); ?>
+        <?php navbar();
+        role(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
-        <!-------------------- INICIO RESUMEN -------------->
-        <div class="tarjetas">
+        <!-- <div class="tarjetas">
+            
+            
+        </div> -->
+
+        <!-------------------- INICIO FUNCIONES -------------->
+        <div class="funciones">
             <h1>Lista de tickets</h1>
             <button onclick="showModal('addTicket');" id="AddBtn" class="button btn-agregar">
                 <i class='bx bxs-plus-circle'></i>
                 <p>Agregar Ticket</p>
             </button>
+            <div class="search-box">
+            <p class="button search-btn">
+                    <i class="bx bx-search icon"></i>
+                </p>
+                <input id="search-input" type="text" name="search-input" value="" placeholder="escriba algo para buscar">
+            </div>
         </div>
 
-        <!-------------------- FIN RESUMEN -------------->
+        <!-------------------- FIN FUNCIONES -------------->
 
         <!-------------------- INICIO TABLA -------------->
         <div class="contenido">
             <div id="Tickets" class="tabla_contenido">
-                <table class="tabla table-sortable">
+                <table class="tabla table-sortable table-search">
                     <thead>
-                        <tr>
+                        <tr class="header">
                             <th># Ticket</th>
                             <th>Fecha</th>
                             <th>Solicitante</th>
@@ -136,7 +148,7 @@ include "Componentes.php";
                 <div class="modal-body">
 
                     <div class="col">
-                        <input type="text" name="id_creador" id="id_creador" Value="<?php echo $_SESSION["id"]; ?>" readonly="true" style="border: none; color: white;">                        
+                        <input type="text" name="id_creador" id="id_creador" Value="<?php echo $_SESSION["id"]; ?>" readonly="true" style="border: none; color: white;">
                         <label for="no_ticket"># Ticket</label><br>
                         <input type="text" name="no_ticket" id="no_ticket" Value="<?php Nvo_Nro_Ticket(); ?>" readonly="true"><br>
                         <label for="solicitante">Solicitante</label><br>
@@ -178,7 +190,7 @@ include "Componentes.php";
         </div>
     </div>
 
-    <script src="../js/script.js"></script>
+    <script src="../JS/script.js"></script>
     <script src="../JS/Modal.js"></script>
     <script src="../JS/sortTable.js"></script>
 

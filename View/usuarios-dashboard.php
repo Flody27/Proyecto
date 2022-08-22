@@ -22,10 +22,9 @@ include "Componentes.php";
     <nav class="sidebar close">
         <header>
             <div class="image-text">
-                <span class="image">
-                    <img src="../logo.png" alt="logo"> <!-- INSERTAR URL DE LOGO -->
+            <span class="image">
+                    <a href="cliente-dashboard.php"><img src="../logo.png" alt="logo"></a>
                 </span>
-
                 <div class="text header-text">
                     <span class="name">Convenio Marco</span>
                 </div>
