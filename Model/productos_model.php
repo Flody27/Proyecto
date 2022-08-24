@@ -30,7 +30,7 @@ function getEstadosProducto(){
 function RegistrarProductoModel($serie, $placa, $marca, $modelo, $categoria, $partida)
 {    
     $instancia = conectarDB();
-    $instancia -> query("CALL RegistrarProducto('$serie', '$placa', $marca, '$modelo', $categoria, '$partida', 'Disponible');");
+    $instancia -> query("CALL RegistrarProducto('$serie', '$placa', $marca, '$modelo', $categoria, '$partida');");
     desconectarDB($instancia);
 }
 
@@ -46,12 +46,28 @@ function ActualizarEstadoProducto($serie, $estado){
     }
 }
 
+function ConsultarCategoriasModel()
+{    
+    $instancia = conectarDB();
+    $listaCategorias = $instancia -> query("CALL Consultar_Cat_Productos();");
+    desconectarDB($instancia);
+    return $listaCategorias;
+}
+
 function ConsultarPartidasModel()
 {    
     $instancia = conectarDB();
     $listaPartidas = $instancia -> query("CALL Consultar_Partidas();");
     desconectarDB($instancia);
     return $listaPartidas;
+}
+
+function ConsultarMarcasModel()
+{    
+    $instancia = conectarDB();
+    $listaMarcas = $instancia -> query("CALL Consultar_Marcas();");
+    desconectarDB($instancia);
+    return $listaMarcas;
 }
 
 ?>

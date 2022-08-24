@@ -140,7 +140,7 @@ include_once "..\controller\Usuario-Controller.php";
                 <i id="close-x" class="cerrar-btn bx bx-x"></i>
                 <p>Registrar Producto</p>
             </div>
-            <form action="../Controller/productos_controller.php" method="POST">
+            <form action="" method="POST">
                 <div class="modal-body">
 
                     <div class="col">
@@ -148,20 +148,29 @@ include_once "..\controller\Usuario-Controller.php";
                         <input type="text" name="serie" id="serie" required>
                         <label for="firstSurname">Placa</label>
                         <input type="text" name="placa" id="placa" required>
-                        <label for="secondSurname">Marca</label>
-                        <input type="text" name="marca" id="marca" required>
+                        <label for="idUnidad">Marca</label>
+                        <select name="marca" id="marca">
+                            <option value="" disabled="disabled" selected="selected">Selecione una marca</option>
+                            <?php ConsultarMarcas();?>
+                        </select>
                         <label for="username">Modelo</label>
                         <input type="text" name="modelo" id="modelo" required>
+                        <label for="idUnidad">Categoría de Producto</label>
+                        <select name="categoriaID" id="categoriaID" required>
+                            <option value="" disabled="disabled" selected="selected">Selecione una categoría</option>
+                            <?php ConsultarCategorias();?>
+                        </select>
+                     
                         <label for="idUnidad">Partida</label>
                         <select name="id_partida" id="id_partida">
                             <option value="" disabled="disabled" selected="selected">Selecione una partida</option>
-                            <?php ConsultarPartidas(); ?>
+                            <?php ConsultarPartidas();?>
                         </select>
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button class="button" type="submit" name="btnCrearTicket">Registrar Producto</button>
+                    <button class="button" type="submit" name="btnCrearProducto">Registrar Producto</button>
                 </div>
             </form>
         </div>

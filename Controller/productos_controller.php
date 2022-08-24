@@ -39,12 +39,12 @@ function getEstado($Estado){
     }
 }
 
-if (isset($_POST['btnCrearTicket'])) {
+if (isset($_POST['btnCrearProducto'])) {
     $serie = $_POST["serie"];
     $placa = $_POST["placa"];
     $marca = $_POST["marca"];
-    $modelo = $_POST["modeo"];
-    $categoria = $_POST["id_categoria"]; 
+    $modelo = $_POST["modelo"];
+    $categoria = $_POST["categoriaID"]; 
     $partida = $_POST["id_partida"]; 
 
     if (RegistrarProductoModel($serie, $placa, $marca, $modelo, $categoria, $partida)
@@ -56,7 +56,7 @@ if (isset($_POST['btnCrearTicket'])) {
     }
 
     
-    header("Location: ../View/admin-tickets.php");
+    header("Location: ../View/admin-dashboard.php");
 }
 
 if (isset($_POST['btnActualizar'])) {
@@ -70,12 +70,30 @@ if (isset($_POST['btnActualizar'])) {
 }
 
 
+function ConsultarCategorias()
+{       
+    $listaCategorias = ConsultarCategoriasModel();
+    while($item = mysqli_fetch_array($listaCategorias))
+    {   
+        echo "<option value=".$item["id_categoria"] .">". $item["ide_nombre_cat"] . "</option>";
+    }
+}
+
 function ConsultarPartidas()
 {       
     $listaPartidas = ConsultarPartidasModel();
     while($item = mysqli_fetch_array($listaPartidas))
     {   
-        echo "<option value=".$item["id_categoria"].$item["id_partida"] .">". $item["descripcion_partida"] . "</option>";
+        echo "<option value=".$item["id_partida"] .">". $item["descripcion_partida"] . "</option>";
+    }
+}
+
+function ConsultarMarcas(){
+    
+    $listaMarcas = ConsultarMarcasModel();
+    while($item = mysqli_fetch_array($listaMarcas))
+    {   
+        echo "<option value=".$item["id_marca"] .">". $item["nombre_marca"] . "</option>";
     }
 }
 
