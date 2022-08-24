@@ -33,7 +33,13 @@ include_once "conexionDB.php";
         function RegistrarTicketModel($id_solicitante, $nro_ticket, $partida_solicitada, $cantidad_solicitada, $id_creador)
         {    
             $instancia = conectarDB();
-            $instancia -> query("CALL RegistroTicketAdmin('$id_solicitante', $nro_ticket, '$partida_solicitada', $cantidad_solicitada, $id_creador);");
+            $resultado = $instancia->query("CALL `RegistroTicketAdmin`('$id_solicitante', $nro_ticket, '$partida_solicitada', $cantidad_solicitada, $id_creador)");
+            if($resultado){
+                return true;
+            }else{
+                echo mysqli_error($instancia);
+                return false;
+            }
             desconectarDB($instancia);
         }
 
@@ -41,7 +47,13 @@ include_once "conexionDB.php";
     function ActualizarTicketModel($No_ticket, $solicitante, $estado)
         {    
             $instancia = conectarDB();
-            $instancia -> query("CALL ActualizarTicket($No_ticket,'$solicitante', '$estado');");
+            $resultado = $instancia -> query("CALL ActualizarTicket($No_ticket,'$solicitante', '$estado');");
+            if($resultado){
+                return true;
+            }else{
+                echo mysqli_error($instancia);
+                return false;
+            }
             desconectarDB($instancia);
         }    
 

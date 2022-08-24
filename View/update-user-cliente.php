@@ -1,11 +1,8 @@
 <?php
-include_once "../Controller/productos_controller.php";
- include_once "..\Controller\Usuario-Controller.php";
+require_once "../Controller/Usuario-Controller.php";
 include "Componentes.php";
-
-$no_producto = $_GET["q"];
-$Producto = ConsultarProducto($no_producto);
-
+$idPersona = $_GET['idper'];
+$item = getUser($idPersona);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +14,7 @@ $Producto = ConsultarProducto($no_producto);
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="stylesheet" href="../CSS/Modal.css">
-    <title>Producto</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -39,26 +36,21 @@ $Producto = ConsultarProducto($no_producto);
         </header>
 
         <div class="menu-bar">
-        <div class="menu">
+            <div class="menu">
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="admin-tickets.php">
+                        <a href="cliente-dashboard.php">
                             <i class='bx bxs-receipt icon'></i>
                             <span class="text nav-text">Órdenes</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="admin-inventario.php">
-                            <i class='bx bxs-spreadsheet icon'></i>
-                            <span class="text nav-text">Inventario</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="admin-usuarios.php">
+                        <a href="cliente-usuarios.php">
                             <i class='bx bxs-user-account icon'></i>
-                            <span class="text nav-text">Admin. Usuarios</span>
+                            <span class="text nav-text">Perfil</span>
                         </a>
                     </li>
+                </ul>
                 </ul>
             </div>
 
@@ -80,32 +72,39 @@ $Producto = ConsultarProducto($no_producto);
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <?php navbar(); role();?>
+        <?php navbar(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
         <!-------------------- INICIO FORMULARIO -------------->
         <div class="form">
-            <h2>Información de Producto</h2>
-            <form action="../Controller/productos_controller.php" method="post">
-                <div class="form-body" id="cuerpo_form_ticket">
+            <h2>Actulizar informacion de usuario</h2>
+            <form action="../Controller/Usuario-Controller.php" method="post">
+                <div class="form-body">
                     <div class="col">
-                        <div class="row" style="width: 150%;">
-                            <label for="ticket">Placa: </label><br>
-                            <input type="text" name="Placa" id="Placa" Value="<?php echo $Producto["placa_producto"]; ?>" readonly="true"><br>
-                            <label for="fecha">Serie: </label><br>
-                            <input type="text" name="Serie" id="Serie" Value="<?php echo $Producto["serie_producto"]; ?>" readonly="true"><br>
-                            <label for="solicitante">Descripción: </label><br>
-                            <!-- <input type="text" name="Descripcion" id="Descripcion" Value="<?php //echo $Producto["descripcion_partida"]; ?>" readonly="true" style="height: 150px;"><br> -->
-                            <textarea type="text" name="Descripcion" id="Descripcion"><?php echo $Producto["descripcion_partida"]; ?></textarea><br>
-                            <label for="estado">Estado de Disponibilidad: </label><br>
-                            <select name="Estado" id="Estado">                            
-                            <?php getEstado($item['desc_estado']); ?>
-                        </select>                            
+                        <input type="hidden" name="id" <?php echo " value='" . $idPersona . "' "; ?>>
+                        <label for="name">Nombre</label><br>
+                        <input type="text" name="name" id="name" <?php echo " value='" . $item['nombre'] . "' "; ?> required><br>
+                        <label for="firstSurname">1º Apellido</label><br>
+                        <input type="text" name="firstSurname" id="firstSurname" <?php echo " value='" . $item['apellido1'] . "' "; ?> required><br>
+                        <label for="secondSurname">2º Apellido</label><br>
+                        <input type="text" name="secondSurname" id="secondSurname" <?php echo " value='" . $item['apellido2'] . "' "; ?> required><br>
+                        <label for="username">Nombre de usuario</label><br>
+                        <input type="text" name="username" id="username" <?php echo " value='" . $item['username'] . "' "; ?> required><br>
+                        <input type="hidden" name="password" <?php echo " value='" . $item['password'] . "' "; ?>>
+                    </div>
+
+                    <div class="col">
+                        <label for="gender">Selecione un genero</label><br>
+                        <div class="radioBtns">
+                            <?php
+                            getGender($item['sexo']);
+                            ?>
                         </div>
                     </div>
-                    <div class="buttons">
-                        <button class="button" type="submit" name="btnActualizar">Actualizar</button>
-                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="button" type="submit" name="updateUser-btn">Actulizar</button>
+                </div>
             </form>
         </div>
         <!-------------------- FIN FORMULARIO -------------->

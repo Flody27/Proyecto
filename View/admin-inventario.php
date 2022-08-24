@@ -38,17 +38,7 @@ include_once "..\controller\Usuario-Controller.php";
 
         <div class="menu-bar">
             <div class="menu">
-                <li class="search-box">
-                    <i class="bx bx-search icon"></i>
-                    <input type="search" placeholder="Buscar...">
-                </li>
                 <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="admin-inventario.php">
-                            <i class='bx bxs-bell icon'></i>
-                            <span class="text nav-text">Notificaciones</span>
-                        </a>
-                    </li>
                     <li class="nav-link">
                         <a href="admin-tickets.php">
                             <i class='bx bxs-receipt icon'></i>
@@ -68,7 +58,6 @@ include_once "..\controller\Usuario-Controller.php";
                         </a>
                     </li>
                 </ul>
-                </ul>
             </div>
             <div class="bottom-content">
                 <li class="">
@@ -86,18 +75,19 @@ include_once "..\controller\Usuario-Controller.php";
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <?php navbar(); role(); ?>
+        <?php navbar();
+        role(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
         <!-------------------- INICIO FUNCIONES -------------->
         <div class="funciones">
-        <h1>Inventario</h1>
-        <button onclick="showModal('addProducto');" id="AddBtn" class="button btn-agregar">
+            <h1>Inventario</h1>
+            <button onclick="showModal('addProducto');" id="AddBtn" class="button btn-agregar">
                 <i class='bx bxs-plus-circle'></i>
                 <p>Agregar Producto</p>
             </button>
             <div class="search-box">
-            <p class="button search-btn">
+                <p class="button search-btn">
                     <i class="bx bx-search icon"></i>
                 </p>
                 <input id="search-input" type="text" name="search-input" value="" placeholder="escriba algo para buscar">
@@ -132,8 +122,8 @@ include_once "..\controller\Usuario-Controller.php";
     </section>
 
 
-   <!--Modal -->
-   <div id="addProducto" class="modal">
+    <!--Modal -->
+    <div id="addProducto" class="modal">
         <!-- Contenido -->
         <div class="modal-content">
             <div class="modal-header">
@@ -151,20 +141,20 @@ include_once "..\controller\Usuario-Controller.php";
                         <label for="idUnidad">Marca</label>
                         <select name="marca" id="marca">
                             <option value="" disabled="disabled" selected="selected">Selecione una marca</option>
-                            <?php ConsultarMarcas();?>
+                            <?php ConsultarMarcas(); ?>
                         </select>
                         <label for="username">Modelo</label>
                         <input type="text" name="modelo" id="modelo" required>
                         <label for="idUnidad">Categoría de Producto</label>
                         <select name="categoriaID" id="categoriaID" required>
                             <option value="" disabled="disabled" selected="selected">Selecione una categoría</option>
-                            <?php ConsultarCategorias();?>
+                            <?php ConsultarCategorias(); ?>
                         </select>
-                     
+
                         <label for="idUnidad">Partida</label>
-                        <select name="id_partida" id="id_partida">
+                        <select name="id_partida" id="id_partida" required>
                             <option value="" disabled="disabled" selected="selected">Selecione una partida</option>
-                            <?php ConsultarPartidas();?>
+                            <?php ConsultarPartidas(); ?>
                         </select>
                     </div>
 

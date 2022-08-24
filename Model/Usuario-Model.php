@@ -68,3 +68,22 @@ include_once 'conexionDB.php';
             return false; 
         }
     }
+
+    function getUsuarioModel($Usuario){
+        $db = conectarDB();
+        $user = $db->query("CALL `getUsuario`('$Usuario');");
+        desconectarDB($db);
+        return $user;
+    }
+
+    function updateUserDB($id,$name,$firstSurname,$secondSurname,$username,$password,$gender){
+        $db = conectarDB();
+        $query = $db->query(" CALL `updateUseronly`($id,'$name','$firstSurname','$secondSurname','$username','$password','$gender');");
+        desconectarDB($db);
+        if($query){
+            return true;
+        }else{
+            echo mysqli_error($db);
+            return false; 
+        }
+    }

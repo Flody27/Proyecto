@@ -170,22 +170,46 @@ if (isset($_POST['update-btn'])) {
         echo '<p>Error</p>';
     }
 }
-if (isset($_POST['update-btn'])) {
+if (isset($_POST['updateUser-btn'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $firstSurname = $_POST['firstSurname'];
     $secondSurname = $_POST['secondSurname'];
     $gender = $_POST['gender'];
-    $idUnidad = $_POST['idUnidad'];
-    $accountStatement = $_POST['accountStatement'];
     $username =  $_POST['username'];
     $password = $_POST['password'];
-
-    // ActualizarUsuariosModel($name, $firstSurname, $secondSurname, $gender, $idUnidad,$accountStatement,$username,$password);
-    // header("Location: ../View/user-modify.php");
+    if (updateUserDB(
+        $id,
+        $name,
+        $firstSurname,
+        $secondSurname,
+        $username,
+        $password,
+        $gender
+    )) {
+        header("location: ../View/cliente-usuarios.php");
+    } else {
+        echo '<p>Error</p>';
+    }
 }
 
 
+function getUsuario($Usuario)
+{
+    $user = getUsuarioModel($Usuario);
+    while ($item = mysqli_fetch_array($user)) {
+        echo "<tr>";
+        echo "<td>" . $item['id_persona'] . "</td>";
+        echo "<td>" . $item['nombre'] . " " . $item['apellido1'] . " " . $item['apellido2'] . "</td>";
+        echo "<td>" . $item['username'] . "</td>";
+        echo "<td>" . $item['sexo'] . "</td>";
+        echo "<td>" . $item['id_unidad'] . "</td>";
+        echo "<td>" . $item['estado_cuenta'] . "</td>";
+        echo "<td><button class='button' ><a href='update-user-cliente.php?idper=" . $item['id_persona'] . "'>Editar</a>
+            </button></td>";
+        echo "</tr>";
+    }
+}
 
 
 function role()

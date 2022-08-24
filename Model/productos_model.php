@@ -30,8 +30,14 @@ function getEstadosProducto(){
 function RegistrarProductoModel($serie, $placa, $marca, $modelo, $categoria, $partida)
 {    
     $instancia = conectarDB();
-    $instancia -> query("CALL RegistrarProducto('$serie', '$placa', $marca, '$modelo', $categoria, '$partida');");
+    $registro = $instancia -> query("CALL RegistrarProducto('$serie', '$placa', $marca, '$modelo', $categoria, '$partida');");
     desconectarDB($instancia);
+    if($registro){
+        return true;
+    }else{
+        echo mysqli_error($instancia);
+        return false;
+    }
 }
 
 function ActualizarEstadoProducto($serie, $estado){

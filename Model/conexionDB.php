@@ -3,7 +3,7 @@
         $hostname = 'localhost:3306';
         $user ='root';
         $password = '';
-        $database = 'proyecto';
+        $database = 'principal';
         return mysqli_connect($hostname,$user,$password,$database);
     }
 

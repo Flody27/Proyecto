@@ -38,17 +38,7 @@ $item = getUser($idPersona);
 
         <div class="menu-bar">
             <div class="menu">
-                <li class="search-box">
-                    <i class="bx bx-search icon"></i>
-                    <input type="search" placeholder="Buscar...">
-                </li>
                 <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="admin-inventario.php">
-                            <i class='bx bxs-bell icon'></i>
-                            <span class="text nav-text">Notificaciones</span>
-                        </a>
-                    </li>
                     <li class="nav-link">
                         <a href="admin-tickets.php">
                             <i class='bx bxs-receipt icon'></i>
@@ -88,7 +78,8 @@ $item = getUser($idPersona);
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <?php navbar(); role();?>
+        <?php navbar();
+        role(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
         <!-------------------- INICIO FORMULARIO -------------->
@@ -127,7 +118,7 @@ $item = getUser($idPersona);
                         <label for="privileges">Privilegios</label><br>
 
                         <select name="privileges" id="privileges" required>
-                            <option  disabled="disabled" selected="selected">Selecione un rol</option>
+                            <option disabled="disabled" selected="selected">Selecione un rol</option>
                             <?php getRol($item['nombre_privilegio']); ?>
                         </select><br>
                         <label for="accountStatement">Estado de cuenta</label><br>
@@ -148,24 +139,24 @@ $item = getUser($idPersona);
     </section>
     </div>
     <div id="confDelete" class="modal">
-        
-            <div class="modal-content modal-delte-confirm">
-                <div class="modal-header">
-                    <i id="close-x" class='cerrar-btn bx bx-x'></i>
-                    <p>Eliminar usuario</p>
-                </div>
-                <div class="modal-body">
-                    <h2 class="red-text">! Esta seguro en eliminar este usuario</h2>
-                </div>
-                <div class="modal-footer">
-                    <button id="close-btn" class="button" type="button">Cancelar</button>
-                    <form action="../Controller/Usuario-Controller.php" method="post">
-                        <button class="button cancel-btn" name="delete-btn" type="submit">
-                            <?php echo " <a href='../Controller/Usuario-Controller.php?dlt=" . $item['id_persona'] . "'>Eliminar</a> "; ?>
-                        </button>
-                    </form>
-                </div>
-         
+
+        <div class="modal-content modal-delte-confirm">
+            <div class="modal-header">
+                <i id="close-x" class='cerrar-btn bx bx-x'></i>
+                <p>Eliminar usuario</p>
+            </div>
+            <div class="modal-body">
+                <h2 class="red-text">! Esta seguro en eliminar este usuario</h2>
+            </div>
+            <div class="modal-footer">
+                <button id="close-btn" class="button" type="button">Cancelar</button>
+                <form action="../Controller/Usuario-Controller.php" method="post">
+                    <button class="button cancel-btn" name="delete-btn" type="submit">
+                        <?php echo " <a href='../Controller/Usuario-Controller.php?dlt=" . $item['id_persona'] . "'>Eliminar</a> "; ?>
+                    </button>
+                </form>
+            </div>
+
         </div>
 
     </div>

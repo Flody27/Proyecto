@@ -22,7 +22,7 @@ include "Componentes.php";
     <nav class="sidebar close">
         <header>
             <div class="image-text">
-            <span class="image">
+                <span class="image">
                     <a href="cliente-dashboard.php"><img src="../logo.png" alt="logo"></a>
                 </span>
                 <div class="text header-text">
@@ -35,37 +35,30 @@ include "Componentes.php";
 
         <div class="menu-bar">
             <div class="menu">
-                <li class="search-box">
-                    <i class="bx bx-search icon"></i>
-                    <input type="search" placeholder="Buscar...">
-                </li>
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="">
-                            <i class='bx bxs-bell icon'></i>
-                            <span class="text nav-text">Notificaciones</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="">
+                        <a href="admin-tickets.php">
                             <i class='bx bxs-receipt icon'></i>
                             <span class="text nav-text">Órdenes</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                    <a href="user-modify.php">
+                        <a href="admin-inventario.php">
                             <i class='bx bxs-spreadsheet icon'></i>
                             <span class="text nav-text">Inventario</span>
                         </a>
                     </li>
-                    
-                </ul>
+                    <li class="nav-link">
+                        <a href="admin-usuarios.php">
+                            <i class='bx bxs-user-account icon'></i>
+                            <span class="text nav-text">Admin. Usuarios</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 
-
             <div class="bottom-content">
-            <li class="">
+                <li class="">
                     <form action="../Controller/Login-Controller.php" method="post">
                         <button type="submit" name="logout-btn">
                             <i class="bx bx-log-out icon"></i>
@@ -80,7 +73,7 @@ include "Componentes.php";
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        
+
         <?php navbar(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
@@ -150,7 +143,8 @@ include "Componentes.php";
                             </tr>
                         </thead>
                         <tbody>
-                            <?php // LlenadoTabla();  ?>
+                            <?php // LlenadoTabla();  
+                            ?>
                         </tbody>
                     </table>
                 </div>

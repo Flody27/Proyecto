@@ -1,8 +1,10 @@
 <?php
 include_once "..\controller\admin_controller.php";
+// include_once "..\controller\Productos_controller.php";
 include_once "..\controller\icket_controller.php";
 include_once "..\controller\Login-Controller.php";
 include "Componentes.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +28,7 @@ include "Componentes.php";
         <header>
             <div class="image-text">
                 <span class="image">
-                    <a href="cliente-dashboard.php"><img src="../logo.png" alt="logo"></a>
+                    <a href="admin-dashboard.php"><img src="../logo.png" alt="logo"></a>
                 </span>
 
                 <div class="text header-text">
@@ -39,17 +41,19 @@ include "Componentes.php";
 
         <div class="menu-bar">
             <div class="menu">
-                <li class="search-box">
-                    <i class="bx bx-search icon"></i>
-                    <input type="search" placeholder="Buscar...">
-                </li>
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="admin-dash-cliente.php">
+                        <a href="cliente-dashboard.php">
                             <i class='bx bxs-receipt icon'></i>
                             <span class="text nav-text">Órdenes</span>
                         </a>
-                    </li>          
+                    </li>
+                    <li class="nav-link">
+                        <a href="cliente-usuarios.php">
+                            <i class='bx bxs-user-account icon'></i>
+                            <span class="text nav-text">Perfil</span>
+                        </a>
+                    </li>
                 </ul>
                 </ul>
             </div>
@@ -70,28 +74,38 @@ include "Componentes.php";
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
         <?php navbar();
-        $Usuario = $_SESSION['username'];?>
-        
+        $Usuario = $_SESSION['username'];
+        $id = $_SESSION['id']; ?>
+
         <!--------------------- FIN NAVBAR------------- -->
 
         <!-------------------- INICIO RESUMEN -------------->
-        <div class="tarjetas">
+        <!-- <div class="tarjetas">
+           
+            
+        </div> -->
+        <div class="funciones">
             <h1>Lista de tickets</h1>
             <button onclick="showModal('addTicket');" id="AddBtn" class="button btn-agregar">
                 <i class='bx bxs-plus-circle'></i>
                 <p>Agregar Ticket</p>
             </button>
+            <div class="search-box">
+                <p class="button search-btn">
+                    <i class="bx bx-search icon"></i>
+                </p>
+                <input id="search-input" type="text" name="search-input" value="" placeholder="escriba algo para buscar">
+            </div>
         </div>
-
         <!-------------------- FIN RESUMEN -------------->
 
         <!-------------------- INICIO TABLA -------------->
 
         <div class="contenido">
             <div id="Tickets" class="tabla_contenido">
-                <table class="tabla table-sortable">
+                <table class="tabla table-sortable table-search">
                     <thead>
-                        <tr>
+                        <tr class="header">
                             <th># Ticket</th>
                             <th>Fecha</th>
                             <th>Solicitante</th>
@@ -100,7 +114,7 @@ include "Componentes.php";
                         </tr>
                     </thead>
                     <tbody>
-                        <?php ConsultarTicketU($Usuario)?>
+                        <?php ConsultarTicketU($Usuario) ?>
                     </tbody>
                 </table>
             </div>
@@ -108,8 +122,8 @@ include "Componentes.php";
 
     </section>
 
-        <!--Modal -->
-        <div id="addTicket" class="modal">
+    <!--Modal -->
+    <div id="addTicket" class="modal">
         <!-- Contenido -->
         <div class="modal-content">
             <div class="modal-header">
@@ -117,40 +131,30 @@ include "Componentes.php";
                 <p>Crear Ticket</p>
             </div>
             <form action="../Controller/icket_controller.php" method="POST">
-                <div class="modal-body">     
+                <div class="modal-body">
 
-                        <div class="col">
+                    <div class="col">
+                        <input type="hidden" <?php echo "value='" . $id . "'" ?> name="id_creador">
                         <label for="no_ticket"># Ticket</label>
                         <input type="text" name="no_ticket" id="no_ticket" Value="<?php Nvo_Nro_Ticket(); ?>" readonly="true"><br>
-                    <select name="solicitante" id="solicitante">
-                            <option value="" disabled="disabled" selected="selected">Solicitante</option>
-                            <?php ConsultarSolicitante($Usuario); ?>
-                        </select><br>          
+                        <label for="">solicitante</label>
+                        <input type="hidden" name="solicitante" <?php echo "value='" . $Usuario . "'" ?>>
+                        <input disabled type="text" name="usuario_solicitante" id="" <?php echo "value='" . $id . "-" . $Usuario . "'" ?>>
+                        <!-- <select  name="solicitante" id="solicitante">
+                            <option selected  selected="selected">
+                                
+                            </option>
+                        </select><br> -->
                         <div class="row">
                             <div class="tabla_productos">
                                 <h1 class="titulo_productos">Producto a Solicitar</h1>
-                                <table class="productos">
-                                    <tbody>
-                                    <thead>
-                                        <tr>
-                                            <th>Cantidad</th>
-                                            <th>Producto</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><input type="text" name="cant_prod" id="cant_prod" required><br></td>
-                                            <td> <select name="txtPartida" class="" required>
-                                                    <option value="" disabled="disabled" selected="selected">Selecione Partida</option>
-                                                    <?php
-                                                    ConsultarPartidas();
-                                                    ?>
-                                                </select><br>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <label for="idUnidad">Partida</label><br>
+                                <select name="txtPartida" id="txtPartida">
+                                    <option value="" disabled="disabled" selected="selected">Selecione una partida</option>
+                                    <?php ConsultarPartidas(); ?>
+                                </select><br>
+                                <label for="cantidad">Cantidad</label>
+                                <input type="number" name="cant_prod" id="cant_prod">
                             </div>
                         </div>
                     </div>

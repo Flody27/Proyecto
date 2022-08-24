@@ -39,17 +39,7 @@ include_once "..\controller\Usuario-Controller.php";
 
         <div class="menu-bar">
             <div class="menu">
-                <li class="search-box">
-                    <i class="bx bx-search icon"></i>
-                    <input type="search" placeholder="Buscar...">
-                </li>
                 <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="admin-inventario.php">
-                            <i class='bx bxs-bell icon'></i>
-                            <span class="text nav-text">Notificaciones</span>
-                        </a>
-                    </li>
                     <li class="nav-link">
                         <a href="admin-tickets.php">
                             <i class='bx bxs-receipt icon'></i>
@@ -68,7 +58,6 @@ include_once "..\controller\Usuario-Controller.php";
                             <span class="text nav-text">Admin. Usuarios</span>
                         </a>
                     </li>
-                </ul>
                 </ul>
             </div>
             <div class="bottom-content">
@@ -99,7 +88,7 @@ include_once "..\controller\Usuario-Controller.php";
                 <p>Agregar Ticket</p>
             </button>
             <div class="search-box">
-            <p class="button search-btn">
+                <p class="button search-btn">
                     <i class="bx bx-search icon"></i>
                 </p>
                 <input id="search-input" type="text" name="search-input" value="" placeholder="escriba algo para buscar">

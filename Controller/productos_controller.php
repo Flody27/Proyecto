@@ -56,7 +56,7 @@ if (isset($_POST['btnCrearProducto'])) {
     }
 
     
-    header("Location: ../View/admin-dashboard.php");
+    // header("Location: ../View/admin-dashboard.php");
 }
 
 if (isset($_POST['btnActualizar'])) {

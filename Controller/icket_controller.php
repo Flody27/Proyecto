@@ -23,9 +23,6 @@ if (isset($_POST['btnCrearTicket'])) {
     } else {
         echo '<p>Error</p>';
     }
-
-    
-    header("Location: ../View/admin-tickets.php");
 }
 
 
@@ -34,8 +31,12 @@ if (isset($_POST['btnActualizar'])) {
     $solicitante = $_POST["solicitante"];
     $estado = $_POST["estado_ticket"];
 
-    ActualizarTicketModel($ticket, $solicitante, $estado);
-    header("Location: ../View/admin-dashboard.php");
+    if(ActualizarTicketModel($ticket, $solicitante, $estado)){
+        header("Location: ../View/admin-tickets.php");
+    }else{
+        echo 'error';
+    }
+    
 }
 
 function TablaDetalleTicket($No_ticket)

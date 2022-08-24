@@ -42,17 +42,7 @@ $Ticket = ConsultarTicket($no_ticket);
 
         <div class="menu-bar">
             <div class="menu">
-                <li class="search-box">
-                    <i class="bx bx-search icon"></i>
-                    <input type="search" placeholder="Buscar...">
-                </li>
                 <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="admin-inventario.php">
-                            <i class='bx bxs-bell icon'></i>
-                            <span class="text nav-text">Notificaciones</span>
-                        </a>
-                    </li>
                     <li class="nav-link">
                         <a href="admin-tickets.php">
                             <i class='bx bxs-receipt icon'></i>
@@ -72,9 +62,7 @@ $Ticket = ConsultarTicket($no_ticket);
                         </a>
                     </li>
                 </ul>
-                </ul>
             </div>
-
 
             <div class="bottom-content">
                 <li class="">
@@ -93,7 +81,8 @@ $Ticket = ConsultarTicket($no_ticket);
 
     <section class="home-section">
         <!-------------------- INICIO NAVBAR -------------->
-        <?php navbar(); role(); ?>
+        <?php navbar();
+        role(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
         <!-------------------- INICIO FORMULARIO -------------->

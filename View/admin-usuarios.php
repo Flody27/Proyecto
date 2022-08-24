@@ -38,18 +38,8 @@ include "Componentes.php";
         </header>
 
         <div class="menu-bar">
-            <div class="menu">
-                <li class="search-box">
-                    <i class="bx bx-search icon"></i>
-                    <input type="search" placeholder="Buscar...">
-                </li>
+        <div class="menu">
                 <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="admin-inventario.php">
-                            <i class='bx bxs-bell icon'></i>
-                            <span class="text nav-text">Notificaciones</span>
-                        </a>
-                    </li>
                     <li class="nav-link">
                         <a href="admin-tickets.php">
                             <i class='bx bxs-receipt icon'></i>
