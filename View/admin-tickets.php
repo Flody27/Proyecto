@@ -91,11 +91,6 @@ include_once "..\controller\Usuario-Controller.php";
         role(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
-        <!-- <div class="tarjetas">
-            
-            
-        </div> -->
-
         <!-------------------- INICIO FUNCIONES -------------->
         <div class="funciones">
             <h1>Lista de tickets</h1>

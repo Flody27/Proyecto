@@ -17,7 +17,7 @@ $Producto = ConsultarProducto($no_producto);
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="stylesheet" href="../CSS/Modal.css">
-    <title>Document</title>
+    <title>Producto</title>
 </head>
 
 <body>

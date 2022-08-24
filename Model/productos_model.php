@@ -46,4 +46,12 @@ function ActualizarEstadoProducto($serie, $estado){
     }
 }
 
+function ConsultarPartidasModel()
+{    
+    $instancia = conectarDB();
+    $listaPartidas = $instancia -> query("CALL Consultar_Partidas();");
+    desconectarDB($instancia);
+    return $listaPartidas;
+}
+
 ?>

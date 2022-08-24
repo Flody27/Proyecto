@@ -89,15 +89,6 @@ include_once "..\controller\Usuario-Controller.php";
         <?php navbar(); role(); ?>
         <!--------------------- FIN NAVBAR------------- -->
 
-
-        <!-- <div class="tarjetas">
-            
-            <button onclick="showModal('addProducto');" id="AddBtn" class="button btn-agregar">
-                <i class='bx bxs-plus-circle'></i>
-                <p>Agregar Producto</p>
-            </button>
-        </div> -->
-
         <!-------------------- INICIO FUNCIONES -------------->
         <div class="funciones">
         <h1>Inventario</h1>
@@ -147,39 +138,30 @@ include_once "..\controller\Usuario-Controller.php";
         <div class="modal-content">
             <div class="modal-header">
                 <i id="close-x" class="cerrar-btn bx bx-x"></i>
-                <p>Crear Ticket</p>
+                <p>Registrar Producto</p>
             </div>
             <form action="../Controller/productos_controller.php" method="POST">
                 <div class="modal-body">
 
                     <div class="col">
-                        <label for="name">Serie</label><br>
-                        <input type="text" name="serie" id="serie" required><br>
-                        <label for="firstSurname">Placa</label><br>
-                        <input type="text" name="placa" id="placa" required><br>
-                        <label for="secondSurname">Marca</label><br>
-                        <input type="text" name="marca" id="marca" required><br>
-                        <label for="username">Modelo</label><br>
-                        <input type="text" name="modelo" id="modelo" required><br>
-                    </div>
-
-                    <div class="col">
-                        <label for="categoria">Categoría de Producto</label><br>
-                        <select name="id_categoria" id="id_categoria">
-                            <option value="" disabled="disabled" selected="selected">Selecione una categoría</option>
-                            <?php //getUnidades(); ?>
-                        </select><br>
-
-                        <label for="idUnidad">Partida</label><br>
+                        <label for="name">Serie</label>
+                        <input type="text" name="serie" id="serie" required>
+                        <label for="firstSurname">Placa</label>
+                        <input type="text" name="placa" id="placa" required>
+                        <label for="secondSurname">Marca</label>
+                        <input type="text" name="marca" id="marca" required>
+                        <label for="username">Modelo</label>
+                        <input type="text" name="modelo" id="modelo" required>
+                        <label for="idUnidad">Partida</label>
                         <select name="id_partida" id="id_partida">
                             <option value="" disabled="disabled" selected="selected">Selecione una partida</option>
-                            <?php //ConsultarPartidas(); ?>
-                        </select><br>
+                            <?php ConsultarPartidas(); ?>
+                        </select>
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button class="button" type="submit" name="btnCrearTicket">Crear Ticket</button>
+                    <button class="button" type="submit" name="btnCrearTicket">Registrar Producto</button>
                 </div>
             </form>
         </div>

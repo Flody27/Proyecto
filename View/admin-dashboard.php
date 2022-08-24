@@ -68,7 +68,6 @@ include "Componentes.php";
                         </a>
                     </li>
                 </ul>
-                <!-- </ul> -->
             </div>
 
 
@@ -144,33 +143,7 @@ include "Componentes.php";
 
         <!-------------------- FIN RESUMEN -------------->
 
-        <!-------------------- INICIO TABLA -------------->
-        <div class="contenido">
-
-            <div id="Unidades" class="tabla_contenido">
-
-                <table class="tabla table-sortable">
-                    <thead>
-                        <tr>
-                            <th>Id Unidad</th>
-                            <th>Nombre Unidad</th>
-                            <th>ID Región</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </section>
-
-
-
-
-
-
 
     <script src="../js/script.js"></script>
     <script src="../JS/sortTable.js"></script>

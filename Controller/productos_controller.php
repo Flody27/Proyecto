@@ -69,4 +69,14 @@ if (isset($_POST['btnActualizar'])) {
     }
 }
 
+
+function ConsultarPartidas()
+{       
+    $listaPartidas = ConsultarPartidasModel();
+    while($item = mysqli_fetch_array($listaPartidas))
+    {   
+        echo "<option value=".$item["id_categoria"].$item["id_partida"] .">". $item["descripcion_partida"] . "</option>";
+    }
+}
+
 ?>
